@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="1080.0" prefWidth="1920.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="org.example.FXMLController">
+   <children>
+      <Pane layoutY="100.0" prefHeight="980.0" prefWidth="250.0" style="-fx-background-color: #575B62;">
+         <children>
+            <Pane fx:id="pane1" layoutX="22.0" layoutY="39.0" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="41.0" prefWidth="207.0" style="-fx-background-radius: 3; -fx-border-radius: 3;">
+               <children>
+                  <Pane fx:id="pane1small" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="41.0" prefWidth="5.0" style="-fx-background-color: #B088FF;" visible="false" />
+                  <Label layoutX="71.0" layoutY="5.0" text="File" textFill="WHITE">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="14.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_file_32px_1.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="b_1" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="41.0" prefWidth="207.0" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane prefHeight="100.0" prefWidth="1920.0" style="-fx-background-color: #3D4045;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Pane fx:id="pane2" layoutX="224.0" layoutY="139.0" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="433.0" prefWidth="200.0" style="-fx-background-color: #575B62;" visible="false">
+         <children>
+            <Pane fx:id="pane3" layoutX="13.0" layoutY="14.0" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="41.0" prefWidth="175.0">
+               <children>
+                  <Label layoutX="45.0" layoutY="5.0" prefHeight="32.0" prefWidth="85.0" text="Download" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Pane fx:id="pane3small" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="41.0" prefWidth="5.0" style="-fx-background-color: #B088FF;" visible="false" />
+                  <Pane fx:id="b_2" onMouseClicked="#click" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="41.0" prefWidth="175.0" />
+               </children>
+            </Pane>
+         </children>
+         <effect>
+            <InnerShadow color="#3d4045" height="63.93" radius="31.8525" width="65.48" />
+         </effect>
+      </Pane>
+      <Pane fx:id="paneDownloads" layoutX="513.0" layoutY="139.0" onMouseClicked="#click" prefHeight="433.0" prefWidth="693.0" style="-fx-background-color: #3D4045;" visible="false">
+         <children>
+            <Label layoutX="285.0" layoutY="14.0" text="Downloads" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Pane fx:id="b_Close" layoutX="662.0" layoutY="14.0" onMouseClicked="#click" prefHeight="17.0" prefWidth="17.0" style="-fx-background-color: red;" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

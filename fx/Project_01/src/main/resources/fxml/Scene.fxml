@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane id="AnchorPane" prefHeight="520.0" prefWidth="910.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.FXMLController">
+   <children>
+      <AnchorPane fx:id="paneHead" layoutX="715.0" prefHeight="520.0" prefWidth="166.0">
+         <children>
+            <Pane prefHeight="130.0" prefWidth="200.0" style="-fx-background-color: #EB2C87;">
+               <children>
+                  <ImageView fitHeight="36.0" fitWidth="38.0" layoutX="82.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_home_50px_3.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="paneA" onMousePressed="#inVisible" prefHeight="130.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+            <Pane layoutY="130.0" prefHeight="130.0" prefWidth="200.0" style="-fx-background-color: #9F25F1;">
+               <children>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="80.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_chat_bubble_30px.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="paneB" onMousePressed="#inVisible" prefHeight="130.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+            <Pane layoutY="260.0" prefHeight="130.0" prefWidth="200.0" style="-fx-background-color: #42D5C6;">
+               <children>
+                  <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="78.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_calculator_30px_1.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="paneC" onMousePressed="#inVisible" prefHeight="130.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+            <Pane layoutY="390.0" prefHeight="130.0" prefWidth="200.0" style="-fx-background-color: #F4CE17;">
+               <children>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="80.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_settings_50px.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="paneD" onMousePressed="#inVisible" prefHeight="130.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="paneSettings" prefHeight="520.0" prefWidth="715.0" style="-fx-background-color: #F4CE17;">
+         <children>
+            <Label layoutX="44.0" layoutY="23.0" prefHeight="76.0" prefWidth="293.0" text="Settings" textFill="#fcf1bc">
+               <font>
+                  <Font name="System Bold" size="55.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="paneCalculator" prefHeight="520.0" prefWidth="715.0" style="-fx-background-color: #42D5C6;">
+         <children>
+            <TextField fx:id="textField" layoutX="28.0" layoutY="22.0" onAction="#calculatorButton" prefHeight="76.0" prefWidth="489.0" style="-fx-background-color: #C4F2EE; -fx-background-radius: 7; -fx-border-radius: 7;" AnchorPane.bottomAnchor="422.0" />
+            <Button fx:id="b7" layoutX="28.0" layoutY="122.0" mnemonicParsing="false" onAction="#calculatorButton" prefHeight="76.0" prefWidth="72.0" style="-fx-border-color: #C4F2EE; -fx-background-color: #42D5C6; -fx-background-radius: 7; -fx-border-radius: 7; -fx-border-width: 2;" text="7" textFill="#c4f2ee" AnchorPane.bottomAnchor="322.0">
+               <font>
+                  <Font name="System Bold" size="33.0" />
+               </font>
+            </Button>
+            <Button fx:id="b4" layoutX="28.0" layoutY="222.0" mnemonicParsing="false" onAction="#calculatorButton" prefHeight="76.0" prefWidth="72.0" style="-fx-border-color: #C4F2EE; -fx-background-color: #42D5C6; -fx-background-radius: 7; -fx-border-radius: 7; -fx-border-width: 2;" text="4" textFill="#c4f2ee" AnchorPane.bottomAnchor="222.0">
+               <font>
+                  <Font name="System Bold" size="33.0" />
+               </font>
+            </Button>
+            <Button fx:id="b1" layoutX="28.0" layoutY="322.0" mnemonicParsing="false" onAction="#calculatorButton" prefHeight="76.0" prefWidth="72.0" style="-fx-border-color: #C4F2EE; -fx-background-color: #42D5C6; -fx-background-radius: 7; -fx-border-radius: 7; -fx-border-width: 2;" text="1" textFill="#c4f2ee" AnchorPane.bottomAnchor="122.0">
+               <font>
+                  <Font name="System Bold" size="33.0" />
+               </font>
+            </Button>
+            <Button fx:id="b0" layoutX="28.0" layoutY="422.0" mnemonicParsing="false" onAction="#calculatorButton" prefHeight="76.0" prefWidth="72.0" style="-fx-border-color: #C4F2EE; -fx-background-color: #42D5C6; -fx-background-radius: 7; -fx-border-radius: 7; -fx-border-width: 2;" text="0" textFill="#c4f2ee" AnchorPane.bottomAnchor="22.0">
+               <font>
+                  <Font name="System Bold" size="33.0" />
+               </font>
+            </Button>
+            <Button fx:id="b8" layoutX="118.0" layoutY="122.0" mnemonicParsing="false" onAction="#calculatorButton" prefHeight="76.0" prefWidth="72.0" style="-fx-border-color: #C4F2EE; -fx-background-color: #42D5C6; -fx-background-radius: 7; -fx-border-radius: 7; -fx-border-width: 2;" text="8" textFill="#c4f2ee" AnchorPane.rightAnchor="515.0">
+               <font>
+                  <Font name="System Bold" size="33.0" />
+               </font>
+            </Button>
+            <Button fx:id="b5" layoutX="118.0" layoutY="222.0" mnemonicParsing="false" onAction="#calculatorButton" prefHeight="76.0" prefWidth="72.0" style="-fx-border-color: #C4F2EE; -fx-background-color: #42D5C6; -fx-background-radius: 7; -fx-border-radius: 7; -fx-border-width: 2;" text="5" textFill="#c4f2ee" AnchorPane.rightAnchor="515.0">
+               <font>
+                  <Font name="System Bold" size="33.0" />
+               </font>
+            </Button>
+            <Button fx:id="b2" layoutX="118.0" layoutY="322.0" mnemonicParsing="false" onAction="#calculatorButton" prefHeight="76.0" prefWidth="72.0" style="-fx-border-color: #C4F2EE; -fx-background-color: #42D5C6; -fx-background-radius: 7; -fx-border-radius: 7; -fx-border-width: 2;" text="2" textFill="#c4f2ee" AnchorPane.rightAnchor="515.0">
+               <font>
+                  <Font name="System Bold" size="33.0" />
+               </font>
+            </Button>
+            <Button fx:id="bDot" layoutX="118.0" layoutY="422.0" mnemonicParsing="false" onAction="#calculatorButton" prefHeight="76.0" prefWidth="72.0" style="-fx-border-color: #C4F2EE; -fx-background-color: #42D5C6; -fx-background-radius: 7; -fx-border-radius: 7; -fx-border-width: 2;" text="," textFill="#c4f2ee" AnchorPane.rightAnchor="515.0">
+               <font>
+                  <Font name="System Bold" size="33.0" />
+               </font>
+            </Button>
+            <Button fx:id="b9" layoutX="223.0" layoutY="122.0" mnemonicParsing="false" onAction="#calculatorButton" prefHeight="76.0" prefWidth="72.0" style="-fx-border-color: #C4F2EE; -fx-background-color: #42D5C6; -fx-background-radius: 7; -fx-border-radius: 7; -fx-border-width: 2;" text="9" textFill="#c4f2ee" AnchorPane.rightAnchor="415.0">
+               <font>
+                  <Font name="System Bold" size="33.0" />
+               </font>
+            </Button>
+            <Button fx:id="b6" layoutX="223.0" layoutY="222.0" mnemonicParsing="false" onAction="#calculatorButton" prefHeight="76.0" prefWidth="72.0" style="-fx-border-color: #C4F2EE; -fx-background-color: #42D5C6; -fx-background-radius: 7; -fx-border-radius: 7; -fx-border-width: 2;" text="6" textFill="#c4f2ee" AnchorPane.rightAnchor="415.0">
+               <font>
+                  <Font name="System Bold" size="33.0" />
+               </font>
+            </Button>
+            <Button fx:id="b3" layoutX="223.0" layoutY="322.0" mnemonicParsing="false" onAction="#calculatorButton" prefHeight="76.0" prefWidth="72.0" style="-fx-border-color: #C4F2EE; -fx-background-color: #42D5C6; -fx-background-radius: 7; -fx-border-radius: 7; -fx-border-width: 2;" text="3" textFill="#c4f2ee" AnchorPane.rightAnchor="415.0">
+               <font>
+                  <Font name="System Bold" size="33.0" />
+               </font>
+            </Button>
+            <Button fx:id="bRes" layoutX="223.0" layoutY="422.0" mnemonicParsing="false" onAction="#calculatorRes" prefHeight="76.0" prefWidth="72.0" style="-fx-border-color: #C4F2EE; -fx-background-color: #42D5C6; -fx-background-radius: 7; -fx-border-radius: 7; -fx-border-width: 2;" text="=" textFill="#c4f2ee" AnchorPane.rightAnchor="415.0">
+               <font>
+                  <Font name="System Bold" size="33.0" />
+               </font>
+            </Button>
+            <Button fx:id="bAdd" layoutX="445.0" layoutY="122.0" mnemonicParsing="false" onAction="#calculatorButton" prefHeight="76.0" prefWidth="72.0" style="-fx-border-color: #C4F2EE; -fx-background-color: #42D5C6; -fx-background-radius: 7; -fx-border-radius: 7; -fx-border-width: 2;" text="+" textFill="#c4f2ee">
+               <font>
+                  <Font name="System Bold" size="33.0" />
+               </font>
+            </Button>
+            <Button fx:id="bSubtract" layoutX="445.0" layoutY="222.0" mnemonicParsing="false" onAction="#calculatorButton" prefHeight="76.0" prefWidth="72.0" style="-fx-border-color: #C4F2EE; -fx-background-color: #42D5C6; -fx-background-radius: 7; -fx-border-radius: 7; -fx-border-width: 2;" text="-" textFill="#c4f2ee">
+               <font>
+                  <Font name="System Bold" size="33.0" />
+               </font>
+            </Button>
+            <Button fx:id="bProduct" layoutX="445.0" layoutY="322.0" mnemonicParsing="false" onAction="#calculatorButton" prefHeight="76.0" prefWidth="72.0" style="-fx-border-color: #C4F2EE; -fx-background-color: #42D5C6; -fx-background-radius: 7; -fx-border-radius: 7; -fx-border-width: 2;" text="x" textFill="#c4f2ee">
+               <font>
+                  <Font name="System Bold" size="33.0" />
+               </font>
+            </Button>
+            <Button fx:id="bDivide" graphicTextGap="0.0" layoutX="445.0" layoutY="422.0" mnemonicParsing="false" onAction="#calculatorButton" prefHeight="76.0" prefWidth="72.0" style="-fx-border-color: #C4F2EE; -fx-background-color: #42D5C6; -fx-background-radius: 7; -fx-border-radius: 7; -fx-border-width: 2;" text="/" textFill="#c4f2ee">
+               <font>
+                  <Font name="System Bold" size="33.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="paneChat" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <AnchorPane fx:id="paneChat2" prefHeight="520.0" prefWidth="715.0" style="-fx-background-color: #9F25F1;">
+               <children>
+                  <TextArea fx:id="textArea" layoutX="26.0" layoutY="26.0" prefHeight="363.0" prefWidth="655.0" />
+                  <TextField fx:id="textFieldMessage" layoutX="26.0" layoutY="418.0" prefHeight="36.0" prefWidth="516.0" style="-fx-background-color: #E1BBFB; -fx-background-radius: 7;" />
+                  <Button fx:id="bOk" layoutX="571.0" layoutY="418.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="111.0" style="-fx-background-color: #9F25F1; -fx-border-color: E1BBFB; -fx-background-radius: 7; -fx-border-radius: 7; -fx-border-width: 2;" text="Ok" textFill="#e1bbfb">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="paneChat1" prefHeight="520.0" prefWidth="715.0" style="-fx-background-color: #9F25F1;">
+               <children>
+                  <TextField fx:id="textFieldUserName" layoutX="283.0" layoutY="65.0" prefHeight="36.0" prefWidth="322.0" style="-fx-background-color: E1BBFB; -fx-background-radius: 7;" />
+                  <TextField fx:id="textFieldHost" layoutX="283.0" layoutY="149.0" prefHeight="36.0" prefWidth="322.0" style="-fx-background-color: E1BBFB; -fx-background-radius: 7;" AnchorPane.bottomAnchor="319.0" />
+                  <TextField fx:id="textFieldPort" layoutX="283.0" layoutY="235.0" prefHeight="36.0" prefWidth="322.0" style="-fx-background-color: E1BBFB; -fx-background-radius: 7;" AnchorPane.bottomAnchor="219.0" />
+                  <Label layoutX="157.0" layoutY="70.0" text="uesr name" textFill="#e1bbfb">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="205.0" layoutY="170.0" text="host" textFill="#e1bbfb">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="205.0" layoutY="270.0" text="port" textFill="#e1bbfb">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="bConnect" layoutX="283.0" layoutY="362.0" mnemonicParsing="false" onAction="#connect" prefHeight="36.0" prefWidth="100.0" style="-fx-background-color: #9F25F1; -fx-border-color: E1BBFB; -fx-border-width: 2; -fx-background-radius: 7; -fx-border-radius: 7;" text="Connect" textFill="#e1bbfb">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="paneHome" prefHeight="520.0" prefWidth="715.0" style="-fx-background-color: #EB2C87;">
+         <children>
+            <WebView fx:id="webview" layoutX="12.0" layoutY="75.0" prefHeight="433.0" prefWidth="691.0" />
+            <Button fx:id="bGoogle" layoutX="70.0" layoutY="14.0" mnemonicParsing="false" onAction="#google" prefHeight="45.0" prefWidth="126.0" style="-fx-background-color: #EB2C87; -fx-border-color: F9BFDB; -fx-border-width: 2; -fx-background-radius: 7; -fx-border-radius: 7;" text="G O O G L E" textFill="#f9bfdb" AnchorPane.rightAnchor="519.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="bYoutube" layoutX="220.0" layoutY="14.0" mnemonicParsing="false" onAction="#youtube" prefHeight="45.0" prefWidth="126.0" style="-fx-background-color: #EB2C87; -fx-border-color: F9BFDB; -fx-border-width: 2; -fx-background-radius: 7; -fx-border-radius: 7;" text="Y O U T U B E" textFill="#f9bfdb" AnchorPane.rightAnchor="369.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="bFacebook" layoutX="370.0" layoutY="14.0" mnemonicParsing="false" onAction="#facebook" prefHeight="45.0" prefWidth="126.0" style="-fx-background-color: #EB2C87; -fx-border-color: F9BFDB; -fx-border-width: 2; -fx-background-radius: 7; -fx-border-radius: 7;" text="F A C E B O O K" textFill="#f9bfdb" AnchorPane.rightAnchor="219.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="bSimpsons" layoutX="520.0" layoutY="14.0" mnemonicParsing="false" onAction="#simpsons" prefHeight="45.0" prefWidth="126.0" style="-fx-background-color: #EB2C87; -fx-border-color: F9BFDB; -fx-border-width: 2; -fx-background-radius: 7; -fx-border-radius: 7;" text="S I M P S O N S" textFill="#f9bfdb" AnchorPane.rightAnchor="69.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

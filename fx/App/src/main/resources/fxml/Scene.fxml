@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane id="AnchorPane" prefHeight="568.0" prefWidth="1006.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.FXMLController">
+   <children>
+      <AnchorPane prefHeight="568.0" prefWidth="210.0" style="-fx-background-color: #28262F;">
+         <children>
+            <Pane layoutX="5.0" layoutY="5.0" prefHeight="57.0" prefWidth="200.0" style="-fx-border-color: #464352; -fx-border-width: 2;">
+               <children>
+                  <ImageView layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_home_32px_3.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="75.0" layoutY="18.0" text="Home" textFill="#956084">
+                     <font>
+                        <Font name="Bookshelf Symbol 7" size="19.0" />
+                     </font>
+                  </Label>
+                  <Pane fx:id="Home" layoutY="1.0" onMousePressed="#paneTarget" prefHeight="57.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+            <Pane layoutX="5.0" layoutY="67.0" prefHeight="57.0" prefWidth="200.0" style="-fx-border-color: #464352; -fx-border-width: 2;">
+               <children>
+                  <ImageView layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_internet_32px_1.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="81.0" layoutY="19.0" text="Web" textFill="#956084">
+                     <font>
+                        <Font name="Bookshelf Symbol 7" size="19.0" />
+                     </font>
+                  </Label>
+                  <Pane fx:id="Web" onMousePressed="#paneTarget" prefHeight="57.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+            <Pane layoutX="5.0" layoutY="129.0" prefHeight="57.0" prefWidth="200.0" style="-fx-border-color: #464352; -fx-border-width: 2;">
+               <children>
+                  <ImageView layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_app_store_32px.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="84.0" layoutY="19.0" text="App" textFill="#956084">
+                     <font>
+                        <Font name="Bookshelf Symbol 7" size="19.0" />
+                     </font>
+                  </Label>
+                  <Pane fx:id="App" onMousePressed="#paneTarget" prefHeight="57.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+            <Pane layoutX="5.0" layoutY="191.0" prefHeight="57.0" prefWidth="200.0" style="-fx-border-color: #464352; -fx-border-width: 2;">
+               <children>
+                  <ImageView layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_chat_32px_3.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="81.0" layoutY="19.0" text="Chat" textFill="#956084">
+                     <font>
+                        <Font name="Bookshelf Symbol 7" size="19.0" />
+                     </font>
+                  </Label>
+                  <Pane fx:id="Chat" onMousePressed="#paneTarget" prefHeight="57.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+            <Pane layoutX="5.0" layoutY="253.0" prefHeight="57.0" prefWidth="200.0" style="-fx-border-color: #464352; -fx-border-width: 2;">
+               <children>
+                  <ImageView layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_Favorite_32px.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="66.0" layoutY="19.0" text="Favorite" textFill="#956084">
+                     <font>
+                        <Font name="Bookshelf Symbol 7" size="19.0" />
+                     </font>
+                  </Label>
+                  <Pane fx:id="Favorite" onMousePressed="#paneTarget" prefHeight="57.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+            <Pane layoutX="5.0" layoutY="506.0" prefHeight="57.0" prefWidth="200.0" style="-fx-border-color: #464352; -fx-border-width: 2;">
+               <children>
+                  <ImageView layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_settings_32px_2.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="66.0" layoutY="18.0" text="Settings" textFill="#956084">
+                     <font>
+                        <Font name="Bookshelf Symbol 7" size="19.0" />
+                     </font>
+                  </Label>
+                  <Pane fx:id="Settings" onMousePressed="#paneTarget" prefHeight="57.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="paneSettings" layoutX="225.0" onMousePressed="#paneTarget" prefHeight="568.0" prefWidth="753.0" style="-fx-background-color: #28262F;">
+         <children>
+            <Pane layoutX="5.0" layoutY="5.0" prefHeight="558.0" prefWidth="744.0" style="-fx-border-color: #464352; -fx-border-width: 2;" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="paneFavorite" layoutX="226.0" onMousePressed="#paneTarget" prefHeight="568.0" prefWidth="753.0" style="-fx-background-color: #28262F;">
+         <children>
+            <Pane layoutX="5.0" layoutY="5.0" prefHeight="558.0" prefWidth="744.0" style="-fx-border-color: #464352; -fx-border-width: 2;">
+               <children>
+                  <Label layoutX="42.0" layoutY="35.0" text="Skeler - Tokyo" textFill="#956084">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Pane fx:id="paneSkelerTokyo" layoutX="20.0" layoutY="17.0" onMouseReleased="#audio" prefHeight="57.0" prefWidth="138.0" style="-fx-border-color: #464352; -fx-border-width: 2;" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="paneChat" layoutX="226.0" onMousePressed="#paneTarget" prefHeight="568.0" prefWidth="753.0" style="-fx-background-color: transparent;">
+         <children>
+            <AnchorPane fx:id="paneChat_2" prefHeight="568.0" prefWidth="753.0" style="-fx-background-color: transparent;">
+               <children>
+                  <Pane prefHeight="432.0" prefWidth="753.0" style="-fx-background-color: #28262F;">
+                     <children>
+                        <Pane layoutX="5.0" layoutY="5.0" prefHeight="422.0" prefWidth="744.0" style="-fx-border-color: #464352; -fx-border-width: 2;">
+                           <children>
+                              <TextArea fx:id="textAreaChat" layoutX="7.0" layoutY="8.0" prefHeight="406.0" prefWidth="730.0" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
+                  <Pane layoutY="455.0" prefHeight="113.0" prefWidth="753.0" style="-fx-background-color: #28262F;">
+                     <children>
+                        <Pane layoutX="5.0" layoutY="6.0" prefHeight="101.0" prefWidth="744.0" style="-fx-border-color: #464352; -fx-border-width: 2;">
+                           <children>
+                              <TextField layoutX="7.0" layoutY="35.0" prefHeight="32.0" prefWidth="629.0" />
+                              <Button fx:id="butEnterChat_2" layoutX="646.0" layoutY="35.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: #28262F; -fx-border-color: #464352; -fx-border-width: 2;" text="E n t e r" textFill="#956084">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </Pane>
+                     </children></Pane>
+               </children></AnchorPane>
+            <AnchorPane fx:id="paneChat_1" onMousePressed="#paneTarget" prefHeight="568.0" prefWidth="753.0" style="-fx-background-color: #28262F;">
+               <children>
+                  <Pane layoutX="5.0" layoutY="5.0" prefHeight="558.0" prefWidth="744.0" style="-fx-border-color: #464352; -fx-border-width: 2;">
+                     <children>
+                        <Label layoutX="159.0" layoutY="118.0" text="name:" textFill="#956084">
+                           <font>
+                              <Font name="Bookshelf Symbol 7" size="19.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="169.0" layoutY="218.0" text="host:" textFill="#956084">
+                           <font>
+                              <Font name="Bookshelf Symbol 7" size="19.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="171.0" layoutY="318.0" text="port:" textFill="#956084">
+                           <font>
+                              <Font name="Bookshelf Symbol 7" size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField layoutX="236.0" layoutY="113.0" prefHeight="32.0" prefWidth="348.0" promptText="name" />
+                        <TextField layoutX="236.0" layoutY="213.0" prefHeight="32.0" prefWidth="348.0" promptText="host" />
+                        <TextField layoutX="236.0" layoutY="313.0" prefHeight="32.0" prefWidth="348.0" promptText="port" />
+                        <Button fx:id="butConnectChat_1" layoutX="334.0" layoutY="390.0" mnemonicParsing="false" onAction="#connect" prefHeight="47.0" prefWidth="152.0" style="-fx-background-color: #28262F; -fx-border-color: #464352; -fx-border-width: 2;" text="C o n n e c t" textFill="#956084">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="paneCalculator" layoutX="226.0" onMousePressed="#paneTarget" prefHeight="568.0" prefWidth="753.0" style="-fx-background-color: #28262F;">
+         <children>
+            <Pane layoutX="5.0" layoutY="5.0" prefHeight="558.0" prefWidth="744.0" style="-fx-border-color: #464352; -fx-border-width: 2;">
+               <children>
+                  <TextField fx:id="textFieldCalculator" layoutX="12.0" layoutY="14.0" prefHeight="57.0" prefWidth="431.0" />
+                  <Button layoutX="12.0" layoutY="85.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-border-color: #464352; -fx-border-width: 2; -fx-background-color: #28262F;" text="7" textFill="#956084">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="12.0" layoutY="155.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-border-color: #464352; -fx-border-width: 2; -fx-background-color: #28262F;" text="4" textFill="#956084">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="12.0" layoutY="225.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-border-color: #464352; -fx-border-width: 2; -fx-background-color: #28262F;" text="1" textFill="#956084">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="82.0" layoutY="85.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-border-color: #464352; -fx-border-width: 2; -fx-background-color: #28262F;" text="8" textFill="#956084">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="82.0" layoutY="155.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-border-color: #464352; -fx-border-width: 2; -fx-background-color: #28262F;" text="5" textFill="#956084">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="82.0" layoutY="225.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-border-color: #464352; -fx-border-width: 2; -fx-background-color: #28262F;" text="2" textFill="#956084">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="152.0" layoutY="85.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-border-color: #464352; -fx-border-width: 2; -fx-background-color: #28262F;" text="9" textFill="#956084">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="152.0" layoutY="155.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-border-color: #464352; -fx-border-width: 2; -fx-background-color: #28262F;" text="6" textFill="#956084">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="152.0" layoutY="225.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-border-color: #464352; -fx-border-width: 2; -fx-background-color: #28262F;" text="3" textFill="#956084">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="12.0" layoutY="295.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-border-color: #464352; -fx-border-width: 2; -fx-background-color: #28262F;" text="0" textFill="#956084">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="82.0" layoutY="295.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="125.0" style="-fx-border-color: #464352; -fx-border-width: 2; -fx-background-color: #28262F;" text="000" textFill="#956084">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="222.0" layoutY="85.0" mnemonicParsing="false" prefHeight="195.0" prefWidth="55.0" style="-fx-border-color: #464352; -fx-border-width: 2; -fx-background-color: #28262F;" text="=" textFill="#956084">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="222.0" layoutY="295.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-border-color: #464352; -fx-border-width: 2; -fx-background-color: #28262F;" text="," textFill="#956084">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="388.0" layoutY="85.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-border-color: #464352; -fx-border-width: 2; -fx-background-color: #28262F;" text="+" textFill="#956084">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="388.0" layoutY="155.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-border-color: #464352; -fx-border-width: 2; -fx-background-color: #28262F;" text="-" textFill="#956084">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="388.0" layoutY="225.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-border-color: #464352; -fx-border-width: 2; -fx-background-color: #28262F;" text="x" textFill="#956084">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="388.0" layoutY="295.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-border-color: #464352; -fx-border-width: 2; -fx-background-color: #28262F;" text="/" textFill="#956084">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="paneApp" layoutX="226.0" onMousePressed="#paneTarget" prefHeight="568.0" prefWidth="753.0" style="-fx-background-color: #28262F;">
+         <children>
+            <Pane layoutX="5.0" layoutY="5.0" prefHeight="558.0" prefWidth="744.0" style="-fx-border-color: #464352; -fx-border-width: 2;">
+               <children>
+                  <ImageView layoutX="32.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_calculator_100px.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="41.0" layoutY="121.0" text="Calculator" textFill="#956084">
+                     <font>
+                        <Font name="Bookshelf Symbol 7" size="19.0" />
+                     </font>
+                  </Label>
+                  <Pane fx:id="Calculator" layoutX="8.0" layoutY="9.0" prefHeight="161.0" prefWidth="152.0" style="-fx-border-color: #464352; -fx-border-width: 2;" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="paneWeb" layoutX="226.0" prefHeight="568.0" prefWidth="753.0" style="-fx-background-color: transparent;">
+         <children>
+            <Pane layoutY="136.0" prefHeight="432.0" prefWidth="753.0" style="-fx-background-color: #28262F;">
+               <children>
+                  <Pane layoutX="5.0" layoutY="5.0" prefHeight="422.0" prefWidth="744.0" style="-fx-border-color: #464352; -fx-border-width: 2;">
+                     <children>
+                        <WebView fx:id="webView" layoutX="7.0" layoutY="7.0" prefHeight="408.0" prefWidth="730.0" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane prefHeight="113.0" prefWidth="753.0" style="-fx-background-color: #28262F;">
+               <children>
+                  <Pane layoutX="5.0" layoutY="6.0" prefHeight="101.0" prefWidth="744.0" style="-fx-border-color: #464352; -fx-border-width: 2;">
+                     <children>
+                        <TextField fx:id="textFieldWeb" layoutX="7.0" layoutY="35.0" prefHeight="32.0" prefWidth="629.0" />
+                        <Button fx:id="butEnterWeb" layoutX="647.0" layoutY="35.0" mnemonicParsing="false" onAction="#load" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: #28262F; -fx-border-color: #464352; -fx-border-width: 2;" text="E n t e r" textFill="#956084">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="paneHome" layoutX="225.0" onMousePressed="#paneTarget" prefHeight="568.0" prefWidth="753.0" style="-fx-background-color: #28262F;">
+         <children>
+            <Pane layoutX="5.0" layoutY="5.0" prefHeight="558.0" prefWidth="744.0" style="-fx-border-color: #464352; -fx-border-width: 2;">
+               <children>
+                  <ImageView fitHeight="316.0" fitWidth="365.0" layoutX="112.0" layoutY="83.0" opacity="0.24" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_IntelliJ_IDEA_100px_1.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="325.0" layoutY="335.0" text="Intellij IDEA" textFill="#253d5b">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="48.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <Button layoutX="987.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="24.0" style="-fx-background-color: red;" />
+   </children>
+</AnchorPane>

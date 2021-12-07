@@ -1,0 +1,759 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: transparent; -fx-background-radius: 5;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.FXMLController">
+   <children>
+      <Pane fx:id="paneOpacity" prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: #53575D;">
+         <effect>
+            <InnerShadow color="#c9c6c8" height="75.0" radius="37.0" width="75.0">
+               <input>
+                  <GaussianBlur radius="6.48" />
+               </input>
+            </InnerShadow>
+         </effect>
+         <children>
+            <ImageView fx:id="image4" fitHeight="600.0" fitWidth="1200.0" onMouseClicked="#enteredBar" opacity="0.48" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../images/image.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="image3" fitHeight="600.0" fitWidth="1200.0" onMouseClicked="#enteredBar" opacity="0.46" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../images/image2.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="image2" fitHeight="600.0" fitWidth="1200.0" onMouseClicked="#enteredBar" opacity="0.46" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../images/image3.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="image1" fitHeight="600.0" fitWidth="1200.0" onMouseClicked="#enteredBar" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/image4.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="paneChat" layoutY="70.0" prefHeight="530.0" prefWidth="1200.0" visible="false">
+         <children>
+            <Pane fx:id="paneChat2" prefHeight="530.0" prefWidth="1200.0" style="-fx-background-color: #53575D; -fx-background-radius: 5;" visible="false">
+               <effect>
+                  <InnerShadow color="#c9c6c8" height="25.0" radius="12.0" width="25.0">
+                     <input>
+                        <GaussianBlur radius="1.5" />
+                     </input>
+                  </InnerShadow>
+               </effect>
+               <children>
+                  <TextField fx:id="textFieldMessage" layoutX="14.0" layoutY="481.0" prefHeight="37.0" prefWidth="986.0" promptText="Enter your message" style="-fx-background-radius: 5;" />
+                  <Button fx:id="bEnterChat" layoutX="1012.0" layoutY="480.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="174.0" style="-fx-background-color: #3C3F44; -fx-background-radius: 5;" text="Enter" textFill="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <effect>
+                        <InnerShadow color="#c9c6c8">
+                           <input>
+                              <GaussianBlur radius="1.5" />
+                           </input>
+                        </InnerShadow>
+                     </effect>
+                  </Button>
+                  <TextArea fx:id="textArea" layoutX="14.0" layoutY="14.0" prefHeight="456.0" prefWidth="1172.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="paneChat1" onMouseClicked="#enteredBar" prefHeight="530.0" prefWidth="1200.0" style="-fx-background-color: #53575D; -fx-background-radius: 5;">
+               <effect>
+                  <InnerShadow color="#c9c6c8" height="25.0" radius="12.0" width="25.0">
+                     <input>
+                        <GaussianBlur radius="1.5" />
+                     </input>
+                  </InnerShadow>
+               </effect>
+               <children>
+                  <TextField fx:id="textFieldName" layoutX="411.0" layoutY="154.0" prefHeight="37.0" prefWidth="459.0" promptText="name" style="-fx-background-radius: 5;" />
+                  <Button fx:id="bConnect" layoutX="573.0" layoutY="375.0" mnemonicParsing="false" onAction="#clickedChat" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: #3C3F44; -fx-background-radius: 5;" text="Connect" textFill="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <effect>
+                        <InnerShadow color="#c9c6c8">
+                           <input>
+                              <GaussianBlur radius="1.5" />
+                           </input>
+                        </InnerShadow>
+                     </effect>
+                  </Button>
+                  <TextField fx:id="textFieldHost" layoutX="411.0" layoutY="215.0" prefHeight="37.0" prefWidth="459.0" promptText="host" style="-fx-background-radius: 5;" />
+                  <TextField fx:id="textFieldPort" layoutX="411.0" layoutY="281.0" prefHeight="37.0" prefWidth="459.0" promptText="port" style="-fx-background-radius: 5;" />
+                  <Label layoutX="484.0" layoutY="73.0" prefHeight="39.0" prefWidth="314.0" text="Connection with chat . . ." textFill="WHITE">
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="330.0" layoutY="159.0" text="name :" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="339.0" layoutY="220.0" text="host :" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="339.0" layoutY="286.0" text="port :" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane fx:id="paneGoogle" layoutY="70.0" prefHeight="530.0" prefWidth="1200.0" style="-fx-background-color: #53575D; -fx-background-radius: 5;" visible="false">
+         <effect>
+            <InnerShadow color="#c9c6c8" height="25.0" radius="12.0" width="25.0">
+               <input>
+                  <GaussianBlur radius="1.5" />
+               </input>
+            </InnerShadow>
+         </effect>
+         <children>
+            <WebView fx:id="webView" layoutX="14.0" layoutY="14.0" prefHeight="504.0" prefWidth="1172.0" />
+         </children>
+      </Pane>
+      <Pane fx:id="paneCalculator" layoutX="373.0" layoutY="140.0" prefHeight="377.0" prefWidth="449.0" style="-fx-background-color: #53575D; -fx-background-radius: 5;" visible="false">
+         <effect>
+            <InnerShadow color="#c9c6c8" height="25.0" radius="12.0" width="25.0">
+               <input>
+                  <GaussianBlur radius="1.5" />
+               </input>
+            </InnerShadow>
+         </effect>
+         <children>
+            <TextField fx:id="textFieldCalculator" layoutX="43.0" layoutY="29.0" onAction="#calcButtons" prefHeight="37.0" prefWidth="363.0" />
+            <Button layoutX="43.0" layoutY="89.0" mnemonicParsing="false" onAction="#calcButtons" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #3C3F44; -fx-background-radius: 5;" text="7" textFill="#93ff87">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <effect>
+                  <InnerShadow color="#c7c5c6" height="25.0" radius="12.0" width="25.0" />
+               </effect>
+            </Button>
+            <Button layoutX="43.0" layoutY="149.0" mnemonicParsing="false" onAction="#calcButtons" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #3C3F44; -fx-background-radius: 5;" text="4" textFill="#93ff87">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <effect>
+                  <InnerShadow color="#c7c5c6" height="25.0" radius="12.0" width="25.0" />
+               </effect>
+            </Button>
+            <Button layoutX="43.0" layoutY="209.0" mnemonicParsing="false" onAction="#calcButtons" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #3C3F44; -fx-background-radius: 5;" text="1" textFill="#93ff87">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <effect>
+                  <InnerShadow color="#c7c5c6" height="25.0" radius="12.0" width="25.0" />
+               </effect>
+            </Button>
+            <Button layoutX="43.0" layoutY="269.0" mnemonicParsing="false" onAction="#calcButtons" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #3C3F44; -fx-background-radius: 5;" text="0" textFill="#50aaff">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <effect>
+                  <InnerShadow color="#c7c5c6" height="25.0" radius="12.0" width="25.0" />
+               </effect>
+            </Button>
+            <Button layoutX="103.0" layoutY="89.0" mnemonicParsing="false" onAction="#calcButtons" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #3C3F44; -fx-background-radius: 5;" text="8" textFill="#93ff87">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <effect>
+                  <InnerShadow color="#c7c5c6" height="25.0" radius="12.0" width="25.0" />
+               </effect>
+            </Button>
+            <Button layoutX="163.0" layoutY="89.0" mnemonicParsing="false" onAction="#calcButtons" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #3C3F44; -fx-background-radius: 5;" text="9" textFill="#93ff87">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <effect>
+                  <InnerShadow color="#c7c5c6" height="25.0" radius="12.0" width="25.0" />
+               </effect>
+            </Button>
+            <Button layoutX="103.0" layoutY="149.0" mnemonicParsing="false" onAction="#calcButtons" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #3C3F44; -fx-background-radius: 5;" text="5" textFill="#93ff87">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <effect>
+                  <InnerShadow color="#c7c5c6" height="25.0" radius="12.0" width="25.0" />
+               </effect>
+            </Button>
+            <Button layoutX="163.0" layoutY="149.0" mnemonicParsing="false" onAction="#calcButtons" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #3C3F44; -fx-background-radius: 5;" text="6" textFill="#93ff87">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <effect>
+                  <InnerShadow color="#c7c5c6" height="25.0" radius="12.0" width="25.0" />
+               </effect>
+            </Button>
+            <Button layoutX="103.0" layoutY="209.0" mnemonicParsing="false" onAction="#calcButtons" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #3C3F44; -fx-background-radius: 5;" text="2" textFill="#93ff87">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <effect>
+                  <InnerShadow color="#c7c5c6" height="25.0" radius="12.0" width="25.0" />
+               </effect>
+            </Button>
+            <Button layoutX="103.0" layoutY="269.0" mnemonicParsing="false" onAction="#calcButtons" prefHeight="45.0" prefWidth="105.0" style="-fx-background-color: #3C3F44; -fx-background-radius: 5;" text="000" textFill="#50aaff">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <effect>
+                  <InnerShadow color="#c7c5c6" height="25.0" radius="12.0" width="25.0" />
+               </effect>
+            </Button>
+            <Button layoutX="163.0" layoutY="209.0" mnemonicParsing="false" onAction="#calcButtons" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #3C3F44; -fx-background-radius: 5;" text="3" textFill="#93ff87">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <effect>
+                  <InnerShadow color="#c7c5c6" height="25.0" radius="12.0" width="25.0" />
+               </effect>
+            </Button>
+            <Button layoutX="225.0" layoutY="89.0" mnemonicParsing="false" onAction="#calcRes" prefHeight="165.0" prefWidth="45.0" style="-fx-background-color: #3C3F44; -fx-background-radius: 5;" text="=" textFill="#ff5555">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <effect>
+                  <InnerShadow color="#c7c5c6" height="25.0" radius="12.0" width="25.0" />
+               </effect>
+            </Button>
+            <Button layoutX="225.0" layoutY="269.0" mnemonicParsing="false" onAction="#calcButtons" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #3C3F44; -fx-background-radius: 5;" text="," textFill="#50aaff">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <effect>
+                  <InnerShadow color="#c7c5c6" height="25.0" radius="12.0" width="25.0" />
+               </effect>
+            </Button>
+            <Button layoutX="361.0" layoutY="89.0" mnemonicParsing="false" onAction="#calcButtons" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #3C3F44; -fx-background-radius: 5;" text="+" textFill="#50aaff">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <effect>
+                  <InnerShadow color="#c7c5c6" height="25.0" radius="12.0" width="25.0" />
+               </effect>
+            </Button>
+            <Button layoutX="361.0" layoutY="149.0" mnemonicParsing="false" onAction="#calcButtons" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #3C3F44; -fx-background-radius: 5;" text="-" textFill="#50aaff">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <effect>
+                  <InnerShadow color="#c7c5c6" height="25.0" radius="12.0" width="25.0" />
+               </effect>
+            </Button>
+            <Button layoutX="361.0" layoutY="209.0" mnemonicParsing="false" onAction="#calcButtons" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #3C3F44; -fx-background-radius: 5;" text="*" textFill="#50aaff">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <effect>
+                  <InnerShadow color="#c7c5c6" height="25.0" radius="12.0" width="25.0" />
+               </effect>
+            </Button>
+            <Button layoutX="361.0" layoutY="269.0" mnemonicParsing="false" onAction="#calcButtons" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #3C3F44; -fx-background-radius: 5;" text="/" textFill="#50aaff">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <effect>
+                  <InnerShadow color="#c7c5c6" height="25.0" radius="12.0" width="25.0" />
+               </effect>
+            </Button>
+            <Pane fx:id="bCloseCalculator" layoutX="415.0" layoutY="29.0" onMouseClicked="#clickedProgrammes" prefHeight="20.0" prefWidth="20.0" style="-fx-background-color: #ff5555; -fx-background-radius: 5;">
+               <effect>
+                  <InnerShadow color="#c7c5c6" height="25.0" radius="12.0" width="25.0" />
+               </effect>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane fx:id="paneSettings3" layoutY="70.0" onMouseClicked="#clickedSettings2" opacity="0.6" prefHeight="385.0" prefWidth="200.0" style="-fx-background-color: #53575D; -fx-background-radius: 5;" visible="false">
+         <effect>
+            <InnerShadow color="#c9c6c8" height="25.0" radius="12.0" width="25.0">
+               <input>
+                  <GaussianBlur radius="1.5" />
+               </input>
+            </InnerShadow>
+         </effect>
+         <children>
+            <Label layoutX="35.0" layoutY="114.0" text="Color scoreboard" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="70.0" layoutY="140.0" text="for time" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <ColorPicker fx:id="colorPicker" layoutX="37.0" layoutY="62.0" onAction="#colorPicker" />
+         </children>
+      </Pane>
+      <Pane fx:id="paneSettings2" layoutY="70.0" onMouseClicked="#clickedSettings2" opacity="0.6" prefHeight="385.0" prefWidth="200.0" style="-fx-background-color: #53575D; -fx-background-radius: 5;" visible="false">
+         <effect>
+            <InnerShadow color="#c9c6c8" height="25.0" radius="12.0" width="25.0">
+               <input>
+                  <GaussianBlur radius="1.5" />
+               </input>
+            </InnerShadow>
+         </effect>
+         <children>
+            <Pane fx:id="pane1S2" layoutX="100.0" layoutY="27.0" onMouseEntered="#enteredSettings2" onMouseExited="#exitedSettings2" prefHeight="61.0" prefWidth="89.0">
+               <children>
+                  <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="8.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_1_32px_1.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="b1S2" onMouseClicked="#clickedSettings2" onMouseEntered="#enteredSettings2" onMouseExited="#exitedSettings2" prefHeight="61.0" prefWidth="89.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="pane2S2" layoutX="100.0" layoutY="114.0" onMouseEntered="#enteredSettings2" onMouseExited="#exitedSettings2" prefHeight="61.0" prefWidth="89.0">
+               <children>
+                  <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="8.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_2_32px_1.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="b2S2" onMouseClicked="#clickedSettings2" onMouseEntered="#enteredSettings2" onMouseExited="#exitedSettings2" prefHeight="61.0" prefWidth="89.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="pane3S2" layoutX="100.0" layoutY="204.0" onMouseEntered="#enteredSettings2" onMouseExited="#exitedSettings2" prefHeight="61.0" prefWidth="89.0">
+               <children>
+                  <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="8.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_3_32px_1.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="b3S2" onMouseClicked="#clickedSettings2" onMouseEntered="#enteredSettings2" onMouseExited="#exitedSettings2" prefHeight="61.0" prefWidth="89.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="pane4S2" layoutX="100.0" layoutY="295.0" onMouseEntered="#enteredSettings2" onMouseExited="#exitedSettings2" prefHeight="61.0" prefWidth="89.0">
+               <children>
+                  <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="8.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_4_32px_1.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="b4S2" onMouseClicked="#clickedSettings2" onMouseEntered="#enteredSettings2" onMouseExited="#exitedSettings2" prefHeight="61.0" prefWidth="89.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="paneSlider" layoutX="26.0" layoutY="24.0" onMouseEntered="#enteredBar" onMouseExited="#exitedBar" prefHeight="338.0" prefWidth="50.0">
+               <children>
+                  <Slider fx:id="slider" layoutX="10.0" layoutY="17.0" max="1.0" onMouseEntered="#enteredBar" onMouseExited="#exitedBar" orientation="VERTICAL" prefHeight="304.0" prefWidth="14.0" style="-fx-background-color: #53575D;" value="1.0" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane fx:id="paneSettings1" layoutX="200.0" layoutY="408.0" onMouseClicked="#clickedMenu" opacity="0.6" prefHeight="113.0" prefWidth="200.0" style="-fx-background-color: #53575D; -fx-background-radius: 5;" visible="false">
+         <effect>
+            <InnerShadow color="#c9c6c8" height="25.0" radius="12.0" width="25.0">
+               <input>
+                  <GaussianBlur radius="1.5" />
+               </input>
+            </InnerShadow>
+         </effect>
+         <children>
+            <Pane fx:id="pane1S" onMouseClicked="#clickedSettings2" onMouseEntered="#enteredSettings1" onMouseExited="#exitedSettings1" prefHeight="44.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="54.0" layoutY="9.0" text="Color pickers" textFill="#ff5555">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imagesProgramms2122" fitHeight="30.0" fitWidth="22.0" layoutX="17.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_paint_palette_32px.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="b1S" onMouseEntered="#enteredSettings1" onMouseExited="#exitedSettings1" prefHeight="44.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="pane2S" layoutY="44.0" onMouseEntered="#enteredSettings1" onMouseExited="#exitedSettings1" prefHeight="44.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="54.0" layoutY="9.0" text="Images" textFill="#ff5555">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imagesProgramms21221" fitHeight="30.0" fitWidth="22.0" layoutX="17.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_image_gallery_32px.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="b2S" onMouseClicked="#clickedMenu" onMouseEntered="#enteredSettings1" onMouseExited="#exitedSettings1" prefHeight="44.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane fx:id="paneGames" layoutX="200.0" layoutY="114.0" opacity="0.6" prefHeight="192.0" prefWidth="200.0" style="-fx-background-color: #53575D; -fx-background-radius: 5;" visible="false">
+         <effect>
+            <InnerShadow color="#c9c6c8" height="25.0" radius="12.0" width="25.0">
+               <input>
+                  <GaussianBlur radius="1.5" />
+               </input>
+            </InnerShadow>
+         </effect>
+         <children>
+            <Pane fx:id="pane1G" onMouseEntered="#enteredGames" onMouseExited="#exitedGames" prefHeight="44.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="54.0" layoutY="9.0" text="Snake" textFill="#93ff87">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imagesProgramms21221" fitHeight="30.0" fitWidth="22.0" layoutX="17.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_year_of_snake_32px.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="b1G" onMouseEntered="#enteredGames" onMouseExited="#exitedGames" prefHeight="44.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="pane2G" layoutY="44.0" onMouseEntered="#enteredGames" onMouseExited="#exitedGames" prefHeight="44.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="54.0" layoutY="9.0" text="Tetris" textFill="#93ff87">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imagesProgramms212211" fitHeight="30.0" fitWidth="22.0" layoutX="17.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_tetris_50px_2.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="b2G" onMouseEntered="#enteredGames" onMouseExited="#exitedGames" prefHeight="44.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane fx:id="paneProgrammes" layoutX="200.0" layoutY="70.0" opacity="0.6" prefHeight="295.0" prefWidth="200.0" style="-fx-background-color: #53575D; -fx-background-radius: 5;" visible="false">
+         <effect>
+            <InnerShadow color="#c9c6c8" height="25.0" radius="12.0" width="25.0">
+               <input>
+                  <GaussianBlur radius="1.5" />
+               </input>
+            </InnerShadow>
+         </effect>
+         <children>
+            <Pane fx:id="pane1P" onMouseEntered="#enteredProgrammes" onMouseExited="#exitedProgrammes" prefHeight="44.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="54.0" layoutY="9.0" text="Intellij" textFill="#93ff87">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imagesProgramms21" fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_IntelliJ_IDEA_100px_2.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="b1P" onMouseEntered="#enteredProgrammes" onMouseExited="#exitedProgrammes" prefHeight="44.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="pane2P" layoutY="44.0" onMouseEntered="#enteredProgrammes" onMouseExited="#exitedProgrammes" prefHeight="44.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="54.0" layoutY="9.0" text="Scenebuilder" textFill="#93ff87">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imagesProgramms211" fitHeight="30.0" fitWidth="22.0" layoutX="17.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_maintenance_32px.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="b2P" onMouseEntered="#enteredProgrammes" onMouseExited="#exitedProgrammes" prefHeight="44.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="pane3P" layoutY="88.0" onMouseEntered="#enteredProgrammes" onMouseExited="#exitedProgrammes" prefHeight="44.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="54.0" layoutY="9.0" text="Calculator" textFill="#93ff87">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imagesProgramms2111" fitHeight="30.0" fitWidth="22.0" layoutX="17.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_calculator_32px.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="b3P" onMouseClicked="#clickedProgrammes" onMouseEntered="#enteredProgrammes" onMouseExited="#exitedProgrammes" prefHeight="44.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane fx:id="paneMenu" layoutY="70.0" opacity="0.6" prefHeight="530.0" prefWidth="200.0" style="-fx-background-color: #53575D; -fx-background-radius: 5;" visible="false">
+         <children>
+            <Pane fx:id="pane1" onMouseEntered="#enteredMenu" onMouseExited="#exitedMenu" prefHeight="44.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="imagesProgramms" fitHeight="12.0" fitWidth="12.0" layoutX="170.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_chevron_right_32px.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="54.0" layoutY="9.0" text="Programmes" textFill="#93ff87">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imagesProgramms2" fitHeight="22.0" fitWidth="22.0" layoutX="17.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_code_file_32px.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="b1" onMouseEntered="#enteredMenu" onMouseExited="#exitedMenu" prefHeight="44.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="pane2" layoutY="44.0" onMouseEntered="#enteredMenu" onMouseExited="#exitedMenu" prefHeight="44.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="imagesGames" fitHeight="12.0" fitWidth="12.0" layoutX="170.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_chevron_right_32px.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="54.0" layoutY="9.0" text="Games" textFill="#93ff87">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imagesGames2" fitHeight="22.0" fitWidth="22.0" layoutX="17.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_nintendo_switch_pro_controller_32px.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="b2" onMouseEntered="#enteredMenu" onMouseExited="#exitedMenu" prefHeight="44.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="pane3" layoutY="88.0" onMouseEntered="#enteredMenu" onMouseExited="#exitedMenu" prefHeight="44.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="54.0" layoutY="9.0" text="Chat" textFill="#93ff87">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imagesChat" fitHeight="22.0" fitWidth="22.0" layoutX="17.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_chat_32px_4.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="b3" onMouseClicked="#clickedMenu" onMouseEntered="#enteredMenu" onMouseExited="#exitedMenu" prefHeight="44.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="pane4" layoutY="132.0" onMouseEntered="#enteredMenu" onMouseExited="#exitedMenu" prefHeight="44.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="54.0" layoutY="9.0" text="Google" textFill="#93ff87">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imagesGoogle" fitHeight="22.0" fitWidth="22.0" layoutX="17.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_google_32px_1.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="b4" onMouseClicked="#clickedMenu" onMouseEntered="#enteredMenu" onMouseExited="#exitedMenu" prefHeight="44.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="pane5" layoutY="176.0" onDragEntered="#enteredMenu" onMouseEntered="#enteredMenu" prefHeight="44.0" prefWidth="200.0">
+               <children>
+                  <Label disable="true" layoutX="54.0" layoutY="9.0" text="Themes" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Pane fx:id="b5" onDragEntered="#enteredMenu" onMouseEntered="#enteredMenu" prefHeight="44.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+            <Separator layoutX="4.0" layoutY="226.0" prefHeight="3.0" prefWidth="193.0">
+               <effect>
+                  <InnerShadow color="#c9c6c8" height="25.0" radius="12.0" width="25.0">
+                     <input>
+                        <GaussianBlur radius="2.5" />
+                     </input>
+                  </InnerShadow>
+               </effect>
+            </Separator>
+            <Pane fx:id="pane6" layoutY="235.0" onMouseEntered="#enteredMenu" onMouseExited="#exitedMenu" prefHeight="44.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="54.0" layoutY="9.0" text="About" textFill="#5cb0ff">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imagesAbout" fitHeight="22.0" fitWidth="22.0" layoutX="17.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_about_32px.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="b6" onMouseEntered="#enteredMenu" onMouseExited="#exitedMenu" prefHeight="44.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="pane7" layoutY="279.0" onDragEntered="#enteredMenu" onMouseEntered="#enteredMenu" prefHeight="44.0" prefWidth="200.0">
+               <children>
+                  <Label disable="true" layoutX="54.0" layoutY="9.0" text="Web settings" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Pane fx:id="b7" layoutY="1.0" onDragEntered="#enteredMenu" onMouseEntered="#enteredMenu" prefHeight="44.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+            <Separator layoutX="4.0" layoutY="329.0" prefHeight="3.0" prefWidth="193.0">
+               <effect>
+                  <InnerShadow color="#c9c6c8" height="25.0" radius="12.0" width="25.0">
+                     <input>
+                        <GaussianBlur radius="2.5" />
+                     </input>
+                  </InnerShadow>
+               </effect>
+            </Separator>
+            <Pane fx:id="pane8" layoutY="338.0" onMouseEntered="#enteredMenu" onMouseExited="#exitedMenu" prefHeight="44.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="imagesGames1" fitHeight="12.0" fitWidth="12.0" layoutX="170.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_chevron_right_32px_2.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="54.0" layoutY="9.0" text="Settings" textFill="#ff5555">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imagesSettings2" fitHeight="22.0" fitWidth="22.0" layoutX="17.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_settings_32px_3.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="b8" onMouseEntered="#enteredMenu" onMouseExited="#exitedMenu" prefHeight="44.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="pane9" layoutY="382.0" onDragEntered="#enteredMenu" onMouseEntered="#enteredMenu" prefHeight="44.0" prefWidth="200.0">
+               <children>
+                  <Label disable="true" layoutX="54.0" layoutY="9.0" text="Developer" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Pane fx:id="b9" onDragEntered="#enteredMenu" onMouseEntered="#enteredMenu" prefHeight="44.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="pane10" layoutY="426.0" onMouseEntered="#enteredMenu" onMouseExited="#exitedMenu" prefHeight="44.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="54.0" layoutY="9.0" text="Quit" textFill="#ff5555">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Pane fx:id="b10" onMouseClicked="#clickedMenu" onMouseEntered="#enteredMenu" onMouseExited="#exitedMenu" prefHeight="44.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+         </children>
+         <effect>
+            <InnerShadow color="#c9c6c8" height="25.0" radius="12.0" width="25.0">
+               <input>
+                  <GaussianBlur radius="1.5" />
+               </input>
+            </InnerShadow>
+         </effect>
+      </Pane>
+      <Pane fx:id="paneBar" onMouseClicked="#enteredBar" opacity="0.6" prefHeight="70.0" prefWidth="1200.0" style="-fx-background-color: #53575D; -fx-background-radius: 5;">
+         <effect>
+            <InnerShadow color="#c7c5c6" height="25.0" radius="12.0" width="25.0">
+               <input>
+                  <GaussianBlur radius="1.5" />
+               </input>
+            </InnerShadow>
+         </effect>
+         <children>
+            <Pane fx:id="paneImages1" layoutX="14.0" layoutY="10.0" onMouseEntered="#enteredBar" onMouseExited="#exitedBar" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #53575D; -fx-background-radius: 5; -fx-border-radius: 5;">
+               <children>
+                  <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_menu_32px_1.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="bImages1" onMouseEntered="#enteredBar" onMouseExited="#exitedBar" prefHeight="50.0" prefWidth="50.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="paneImages2" layoutX="1136.0" layoutY="10.0" onMouseEntered="#enteredBar" onMouseExited="#exitedBar" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #53575D; -fx-background-radius: 5; -fx-border-radius: 5;">
+               <children>
+                  <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_power_off_button_32px_4.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="bClose" onMouseClicked="#clickedBar" onMouseEntered="#enteredBar" onMouseExited="#exitedBar" prefHeight="50.0" prefWidth="50.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="paneTime" layoutX="841.0" layoutY="10.0" prefHeight="50.0" prefWidth="193.0" style="-fx-background-color: #53575D; -fx-background-radius: 50;">
+               <children>
+                  <Label fx:id="labelTime" layoutX="26.0" onMouseClicked="#enteredBar" onMouseEntered="#enteredTime" onMouseExited="#exitedTime" prefHeight="50.0" prefWidth="143.0" textFill="#ff5555">
+                     <font>
+                        <Font size="34.0" />
+                     </font>
+                     <effect>
+                        <GaussianBlur radius="2.25" />
+                     </effect>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="paneImages3" layoutX="1064.0" layoutY="10.0" onMouseEntered="#enteredBar" onMouseExited="#exitedBar" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #53575D; -fx-background-radius: 5; -fx-border-radius: 5;">
+               <children>
+                  <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 90;">
+                     <image>
+                        <Image url="@../images/icons8_menu_32px_1.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="bImages3" onMouseClicked="#clickedBar" onMouseEntered="#enteredBar" onMouseExited="#exitedBar" prefHeight="50.0" prefWidth="50.0" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane fx:id="paneDate" layoutX="849.0" layoutY="73.0" onMouseEntered="#enteredTime" onMouseExited="#exitedTime" opacity="0.6" prefHeight="200.0" prefWidth="200.0" visible="false">
+         <children>
+            <Label fx:id="labelTime2" layoutX="29.0" layoutY="37.0" onMouseClicked="#enteredBar" onMouseExited="#exitedBar" prefHeight="39.0" prefWidth="143.0" text="   2222222" textFill="#ff5555">
+               <font>
+                  <Font size="27.0" />
+               </font>
+               <effect>
+                  <GaussianBlur radius="1.75" />
+               </effect>
+            </Label>
+            <Label fx:id="labelTime1" layoutX="28.0" layoutY="4.0" onMouseClicked="#enteredBar" onMouseExited="#exitedBar" prefHeight="39.0" prefWidth="154.0" text="2222222222" textFill="#ff5555">
+               <font>
+                  <Font size="27.0" />
+               </font>
+               <effect>
+                  <GaussianBlur radius="1.75" />
+               </effect>
+            </Label>
+         </children>
+         <effect>
+            <GaussianBlur radius="2.0" />
+         </effect>
+      </Pane>
+   </children>
+</AnchorPane>
