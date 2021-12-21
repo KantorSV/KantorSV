@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.FXMLController">
+   <children>
+      <MediaView fx:id="mv" fitHeight="700.0" fitWidth="1200.0" onMouseClicked="#click" />
+      <Pane fx:id="paneHead" layoutY="637.0" onMouseClicked="#click" prefHeight="63.0" prefWidth="1200.0" style="-fx-background-color: #34363A; -fx-background-radius: 5;">
+         <children>
+            <Pane fx:id="paneHome" layoutX="14.0" layoutY="13.0" prefHeight="37.0" prefWidth="37.0">
+               <children>
+                  <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_home_32px.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="home" onMouseClicked="#click" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="37.0" prefWidth="37.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="paneUser" layoutX="89.0" layoutY="13.0" prefHeight="37.0" prefWidth="37.0">
+               <children>
+                  <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_customer_32px.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="user" onMouseClicked="#click" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="37.0" prefWidth="37.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="paneGitHub" layoutX="164.0" layoutY="13.0" prefHeight="37.0" prefWidth="37.0">
+               <children>
+                  <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_github_32px.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="gitHub" onMouseClicked="#click" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="37.0" prefWidth="37.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="paneSettings" layoutX="239.0" layoutY="13.0" prefHeight="37.0" prefWidth="37.0">
+               <children>
+                  <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_settings_32px.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="settings" onMouseClicked="#click" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="37.0" prefWidth="37.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="paneMenu" layoutX="314.0" layoutY="13.0" prefHeight="37.0" prefWidth="37.0">
+               <children>
+                  <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_menu_32px.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="menu" onMouseClicked="#click" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="37.0" prefWidth="37.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="paneClose" layoutX="1149.0" layoutY="13.0" prefHeight="37.0" prefWidth="37.0">
+               <children>
+                  <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_exit_sign_32px.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="close" onMouseClicked="#click" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="37.0" prefWidth="37.0" />
+               </children>
+            </Pane>
+         </children></Pane>
+      <Pane fx:id="pane1" layoutX="-132.0" layoutY="345.0" onMouseClicked="#click" onMouseEntered="#entered" onMouseExited="#exited" opacity="0.75" prefHeight="285.0" prefWidth="132.0" style="-fx-background-color: #34363A; -fx-background-radius: 5;">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Programes" textFill="#ff0082">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="pane2" layoutX="-132.0" layoutY="345.0" onMouseClicked="#click" onMouseEntered="#entered" onMouseExited="#exited" opacity="0.75" prefHeight="285.0" prefWidth="132.0" style="-fx-background-color: #34363A; -fx-background-radius: 5;">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Programes" textFill="#ff0082">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="pane3" layoutX="-132.0" layoutY="345.0" onMouseClicked="#click" onMouseEntered="#entered" onMouseExited="#exited" opacity="0.75" prefHeight="285.0" prefWidth="132.0" style="-fx-background-color: #34363A; -fx-background-radius: 5;">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Programes" textFill="#ff0082">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="pane4" layoutX="-132.0" layoutY="345.0" onMouseClicked="#click" onMouseEntered="#entered" onMouseExited="#exited" opacity="0.75" prefHeight="285.0" prefWidth="132.0" style="-fx-background-color: #34363A; -fx-background-radius: 5;">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Programes" textFill="#ff0082">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="pane5" layoutX="-132.0" layoutY="345.0" onMouseClicked="#click" onMouseEntered="#entered" onMouseExited="#exited" opacity="0.75" prefHeight="285.0" prefWidth="132.0" style="-fx-background-color: #34363A; -fx-background-radius: 5;">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Programes" textFill="#ff0082">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
