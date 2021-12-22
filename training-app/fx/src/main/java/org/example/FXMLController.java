@@ -195,7 +195,7 @@ public class FXMLController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        String Url = "file:/D:/javaFX/Resurs/video/sport.mp4";
+        String Url = "file:/C:/Users/HP/Desktop/СЕРГІЙ/KantorFX/girl.mp4";
         Media media = new Media(Url);
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mv.setMediaPlayer(mediaPlayer);
