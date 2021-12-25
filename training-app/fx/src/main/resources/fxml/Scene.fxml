@@ -138,5 +138,57 @@
             <InnerShadow choke="0.15" color="WHITE" height="30.0" radius="14.5" width="30.0" />
          </effect>
       </Pane>
+      <Pane fx:id="paneLogIn" layoutX="159.0" layoutY="82.0" onMouseClicked="#click" prefHeight="263.0" prefWidth="513.0" style="-fx-background-color: black; -fx-background-radius: 3; -fx-border-radius: 3;" visible="false">
+         <children>
+            <Label layoutX="105.0" layoutY="42.0" text="You have successfully registered!" textFill="#f8f8f8">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Label layoutX="151.0" layoutY="85.0" text="Do you want to log in?" textFill="#f8f8f8">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelNo" layoutX="136.0" layoutY="181.0" onMouseEntered="#entered" onMouseExited="#exited" text="NO" textFill="#f8f8f8" underline="true">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelYes" layoutX="352.0" layoutY="181.0" onMouseEntered="#entered" onMouseExited="#exited" text="YES" textFill="#f8f8f8" underline="true">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
+            <Pane fx:id="paneNo" layoutX="112.0" layoutY="172.0" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="49.0" prefWidth="79.0" />
+            <Pane fx:id="paneYes" layoutX="330.0" layoutY="172.0" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="49.0" prefWidth="79.0" />
+         </children>
+         <effect>
+            <InnerShadow choke="0.15" color="WHITE" height="30.0" radius="14.5" width="30.0" />
+         </effect>
+      </Pane>
+      <Pane fx:id="paneIncorrect" layoutX="159.0" layoutY="82.0" onMouseClicked="#click" prefHeight="263.0" prefWidth="513.0" style="-fx-background-color: black; -fx-background-radius: 3; -fx-border-radius: 3;" visible="false">
+         <children>
+            <Label layoutX="130.0" layoutY="43.0" text="Incorrect login or password" textFill="#f8f8f8">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelOk" layoutX="239.0" layoutY="159.0" onMouseEntered="#entered" onMouseExited="#exited" text="OK" textFill="#f8f8f8" underline="true">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
+            <Pane fx:id="paneOk" layoutX="217.0" layoutY="150.0" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="49.0" prefWidth="79.0" />
+         </children>
+         <effect>
+            <InnerShadow choke="0.15" color="WHITE" height="30.0" radius="14.5" width="30.0" />
+         </effect>
+      </Pane>
+      <Pane fx:id="paneSecond" prefHeight="472.0" prefWidth="840.0" style="-fx-background-color: #F39D00;" visible="false">
+         <effect>
+            <InnerShadow choke="0.15" color="WHITE" height="30.0" radius="14.5" width="30.0" />
+         </effect>
+      </Pane>
    </children>
 </AnchorPane>

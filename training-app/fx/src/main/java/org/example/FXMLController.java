@@ -28,7 +28,7 @@ public class FXMLController implements Initializable {
     @FXML
     private MediaView mv;
     @FXML
-    private Label label1, label2, label1A, label2A, label1B, label2B, label11, label22, labelLanguage, labelEnglish, labelUkrainian;
+    private Label label1, label2, label1A, label2A, labelNo, labelYes, labelOk;
     @FXML
     private TextField textFieldLogin1, textFieldLogin2, textFieldEmail;
     @FXML
@@ -36,7 +36,7 @@ public class FXMLController implements Initializable {
     @FXML
     private ImageView imageUser1, imageKey1, imageClose1, imageUser2, imageEmail, imageKey2, imageClose2;
     @FXML
-    private Pane pane, pane1, pane2, pane1A, pane2A, paneLanguage, paneEnglish, paneUkrainian, pn;
+    private Pane pane, pane1, pane2, pane1A, pane2A, paneSecond, paneLogIn, paneIncorrect, paneNo, paneYes, paneOk;
 
     @FXML
     private void entered(MouseEvent event) {
@@ -68,6 +68,21 @@ public class FXMLController implements Initializable {
             imageClose2.setScaleX(1.3);
             imageClose2.setScaleY(1.3);
         }
+        if (event.getTarget() == paneNo) {
+            labelNo.setTextFill(Color.rgb(243, 157, 0));
+            labelNo.setScaleX(1.15);
+            labelNo.setScaleY(1.3);
+        }
+        if (event.getTarget() == paneYes) {
+            labelYes.setTextFill(Color.rgb(243, 157, 0));
+            labelYes.setScaleX(1.15);
+            labelYes.setScaleY(1.3);
+        }
+        if (event.getTarget() == paneOk) {
+            labelOk.setTextFill(Color.rgb(243, 157, 0));
+            labelOk.setScaleX(1.15);
+            labelOk.setScaleY(1.3);
+        }
     }
 
     @FXML
@@ -91,6 +106,21 @@ public class FXMLController implements Initializable {
             label2A.setTextFill(Color.rgb(248, 248, 248));
             label2A.setScaleX(1);
             label2A.setScaleY(1);
+        }
+        if (event.getTarget() == paneNo) {
+            labelNo.setTextFill(Color.rgb(248, 248, 248));
+            labelNo.setScaleX(1);
+            labelNo.setScaleY(1);
+        }
+        if (event.getTarget() == paneYes) {
+            labelYes.setTextFill(Color.rgb(248, 248, 248));
+            labelYes.setScaleX(1);
+            labelYes.setScaleY(1);
+        }
+        if (event.getTarget() == paneOk) {
+            labelOk.setTextFill(Color.rgb(248, 248, 248));
+            labelOk.setScaleX(1);
+            labelOk.setScaleY(1);
         }
         if (event.getTarget() == imageClose1) {
             imageClose1.setScaleX(1);
@@ -167,7 +197,7 @@ public class FXMLController implements Initializable {
             javafx.application.Platform.exit();
         }
         if (event.getTarget() == pane2A) {
-
+            paneLogIn.setVisible(true);
             try {
                 String login = textFieldLogin2.getText();
                 String password = textFieldPassword2.getText();
@@ -183,13 +213,41 @@ public class FXMLController implements Initializable {
             boolean isLoggedIn = userDao.isLoggedIn(login, password);
             if(isLoggedIn){
                 System.out.println("Login - Success");
-
-
-
-
             }else{
+                paneIncorrect.setVisible(true);
                 System.out.println("Login - Failed");
             }
+        }
+        if (event.getTarget() == paneNo) {
+            TranslateTransition slide = new TranslateTransition();
+            slide.setDuration(Duration.seconds(0.3));
+            slide.setNode(pane);
+            slide.setToX(0);
+            slide.play();
+            textFieldLogin1.setVisible(true);
+            textFieldPassword1.setVisible(true);
+            label1.setVisible(true);
+            label1A.setVisible(true);
+            imageUser1.setVisible(true);
+            imageKey1.setVisible(true);
+            imageClose1.setVisible(true);
+            pane1.setVisible(true);
+            pane1A.setVisible(true);
+            textFieldLogin2.setVisible(false);
+            textFieldEmail.setVisible(false);
+            textFieldPassword2.setVisible(false);
+            imageUser2.setVisible(false);
+            imageEmail.setVisible(false);
+            imageKey2.setVisible(false);
+            imageClose2.setVisible(false);
+            label2.setVisible(false);
+            label2A.setVisible(false);
+            pane2.setVisible(false);
+            pane2A.setVisible(false);
+            paneLogIn.setVisible(false);
+        }
+        if (event.getTarget() == paneOk) {
+            paneIncorrect.setVisible(false);
         }
     }
 

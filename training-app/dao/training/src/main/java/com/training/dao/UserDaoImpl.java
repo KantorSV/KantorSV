@@ -7,7 +7,7 @@ import java.util.List;
 public class UserDaoImpl implements UserDao {
 
     private Connection getConnection() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/training", "root", "11111111");
+        return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/kachalka", "root", "11111111");
     }
 
     @Override

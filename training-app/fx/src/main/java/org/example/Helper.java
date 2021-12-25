@@ -1,12 +1,14 @@
 package org.example;
 
+import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 public class Helper {
-
 
     public static void showError(Exception ex) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
