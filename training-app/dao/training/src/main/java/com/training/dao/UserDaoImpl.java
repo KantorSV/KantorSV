@@ -11,7 +11,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void create(String login, String password, String email) {
+    public void create(String login, String password, String email){
         try (Connection c = getConnection()){
             PreparedStatement ps = c.prepareStatement("insert into users (login, password, email) Values (?, md5(?), ?)");
             ps.setString(1, login);
@@ -24,7 +24,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public boolean isLoggedIn(String login, String password) {
+    public boolean isLoggedIn(String login, String password){
         try (Connection connection = getConnection()){
             PreparedStatement ps = connection.prepareStatement("select * from users where login=? and password=MD5(?)");
             ps.setString(1, login);

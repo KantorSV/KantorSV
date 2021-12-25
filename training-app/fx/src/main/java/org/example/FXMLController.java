@@ -28,7 +28,7 @@ public class FXMLController implements Initializable {
     @FXML
     private MediaView mv;
     @FXML
-    private Label label1, label2, label1A, label2A, label1B, label2B, label11, label22, labelLanguage, labelEnglish, labelUkrainian;
+    private Label label1, label2, label1A, label2A, labelNo, labelYes, labelOk, labelOk2;
     @FXML
     private TextField textFieldLogin1, textFieldLogin2, textFieldEmail;
     @FXML
@@ -36,7 +36,7 @@ public class FXMLController implements Initializable {
     @FXML
     private ImageView imageUser1, imageKey1, imageClose1, imageUser2, imageEmail, imageKey2, imageClose2;
     @FXML
-    private Pane pane, pane1, pane2, pane1A, pane2A, paneLanguage, paneEnglish, paneUkrainian, pn;
+    private Pane pane, pane1, pane2, pane1A, pane2A, paneSecond, paneLogIn, paneRegister, paneNo, paneYes, paneOk, paneLogInFailed, paneOk2;
 
     @FXML
     private void entered(MouseEvent event) {
@@ -68,6 +68,26 @@ public class FXMLController implements Initializable {
             imageClose2.setScaleX(1.3);
             imageClose2.setScaleY(1.3);
         }
+        if (event.getTarget() == paneNo) {
+            labelNo.setTextFill(Color.rgb(248, 248, 248));
+            labelNo.setScaleX(1.5);
+            labelNo.setScaleY(1.4);
+        }
+        if (event.getTarget() == paneYes) {
+            labelYes.setTextFill(Color.rgb(248, 248, 248));
+            labelYes.setScaleX(1.5);
+            labelYes.setScaleY(1.4);
+        }
+        if (event.getTarget() == paneOk) {
+            labelOk.setTextFill(Color.rgb(248, 248, 248));
+            labelOk.setScaleX(1.5);
+            labelOk.setScaleY(1.4);
+        }
+        if (event.getTarget() == paneOk2) {
+            labelOk2.setTextFill(Color.rgb(248, 248, 248));
+            labelOk2.setScaleX(1.5);
+            labelOk2.setScaleY(1.4);
+        }
     }
 
     @FXML
@@ -91,6 +111,26 @@ public class FXMLController implements Initializable {
             label2A.setTextFill(Color.rgb(248, 248, 248));
             label2A.setScaleX(1);
             label2A.setScaleY(1);
+        }
+        if (event.getTarget() == paneNo) {
+            labelNo.setTextFill(Color.rgb(248, 248, 248));
+            labelNo.setScaleX(1);
+            labelNo.setScaleY(1);
+        }
+        if (event.getTarget() == paneYes) {
+            labelYes.setTextFill(Color.rgb(248, 248, 248));
+            labelYes.setScaleX(1);
+            labelYes.setScaleY(1);
+        }
+        if (event.getTarget() == paneOk) {
+            labelOk.setTextFill(Color.rgb(248, 248, 248));
+            labelOk.setScaleX(1);
+            labelOk.setScaleY(1);
+        }
+        if (event.getTarget() == paneOk2) {
+            labelOk2.setTextFill(Color.rgb(248, 248, 248));
+            labelOk2.setScaleX(1);
+            labelOk2.setScaleY(1);
         }
         if (event.getTarget() == imageClose1) {
             imageClose1.setScaleX(1);
@@ -169,33 +209,72 @@ public class FXMLController implements Initializable {
         if (event.getTarget() == pane2A) {
 
             try {
+                paneRegister.setVisible(true);
                 String login = textFieldLogin2.getText();
                 String password = textFieldPassword2.getText();
                 String email = textFieldEmail.getText();
                 userDao.create(login, password, email);
-            } catch (Exception ex){
+            } catch (Exception ex) {
+                paneRegister.setVisible(false);
                 Helper.showError(ex);
             }
+
         }
         if (event.getTarget() == pane1A) {
             String login = textFieldLogin1.getText();
             String password = textFieldPassword1.getText();
             boolean isLoggedIn = userDao.isLoggedIn(login, password);
-            if(isLoggedIn){
+            if (isLoggedIn) {
                 System.out.println("Login - Success");
-
-
-
-
-            }else{
+                paneSecond.setVisible(true);
+                paneLogIn.setVisible(true);
+            } else {
                 System.out.println("Login - Failed");
+                paneLogInFailed.setVisible(true);
             }
+        }
+        if (event.getTarget() == paneNo) {
+            TranslateTransition slide = new TranslateTransition();
+            slide.setDuration(Duration.seconds(0.3));
+            slide.setNode(pane);
+            slide.setToX(0);
+            slide.play();
+            textFieldLogin1.setVisible(true);
+            textFieldPassword1.setVisible(true);
+            label1.setVisible(true);
+            label1A.setVisible(true);
+            imageUser1.setVisible(true);
+            imageKey1.setVisible(true);
+            imageClose1.setVisible(true);
+            pane1.setVisible(true);
+            pane1A.setVisible(true);
+            textFieldLogin2.setVisible(false);
+            textFieldEmail.setVisible(false);
+            textFieldPassword2.setVisible(false);
+            imageUser2.setVisible(false);
+            imageEmail.setVisible(false);
+            imageKey2.setVisible(false);
+            imageClose2.setVisible(false);
+            label2.setVisible(false);
+            label2A.setVisible(false);
+            pane2.setVisible(false);
+            pane2A.setVisible(false);
+            paneRegister.setVisible(false);
+        }
+        if (event.getTarget() == paneYes) {
+            paneSecond.setVisible(true);
+        }
+        if (event.getTarget() == paneOk) {
+            paneLogIn.setVisible(false);
+        }
+        if (event.getTarget() == paneOk2) {
+            paneLogInFailed.setVisible(false);
         }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        String Url = "file:/C:/Users/HP/Desktop/СЕРГІЙ/KantorFX/girl.mp4";
+        String Url = "file:/D:/javaFX/Resurs/video/sport.mp4";
         Media media = new Media(Url);
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mv.setMediaPlayer(mediaPlayer);
