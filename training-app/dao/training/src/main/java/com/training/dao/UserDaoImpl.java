@@ -6,13 +6,9 @@ import java.util.List;
 
 public class UserDaoImpl implements UserDao {
 
-    private Connection getConnection() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/kachalka", "root", "11111111");
-    }
-
     @Override
     public void create(String login, String password, String email){
-        try (Connection c = getConnection()){
+        try (Connection c = Helper.getConnection()){
             PreparedStatement ps = c.prepareStatement("insert into users (login, password, email) Values (?, md5(?), ?)");
             ps.setString(1, login);
             ps.setString(2, password);
@@ -25,7 +21,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public boolean isLoggedIn(String login, String password){
-        try (Connection connection = getConnection()){
+        try (Connection connection = Helper.getConnection()){
             PreparedStatement ps = connection.prepareStatement("select * from users where login=? and password=MD5(?)");
             ps.setString(1, login);
             ps.setString(2, password);

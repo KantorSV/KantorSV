@@ -2,13 +2,13 @@ package com.training.model;
 
 public class Workout {
 
-    private String treining;
+    private String training;
 
-    public String getTreining() {
-        return treining;
+    public String getTraining() {
+        return training;
     }
 
-    public void setTreining(String treining) {
-        this.treining = treining;
+    public void setTraining(String training) {
+        this.training = training;
     }
 }

@@ -43,12 +43,28 @@ public class ExercisesDaoImpl implements ExercisesDao {
 
     @Override
     public void update(String currentTitle, String login, String newTitle) {
-
+        try (Connection c = Helper.getConnection()){
+            PreparedStatement ps = c.prepareStatement("update exercises set title = ? where title = ? and " +
+                    "user_id = (select id from users where login= ?)");
+            ps.setString(1, newTitle);
+            ps.setString(2, currentTitle);
+            ps.setString(3, login);
+            ps.execute();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void delete(String title, String login) {
-
+        try (Connection c = Helper.getConnection()){
+            PreparedStatement ps = c.prepareStatement("delete from exercises where title = ? and user_id = (select id from users where login = ?)");
+            ps.setString(1, title);
+            ps.setString(2, login);
+            ps.execute();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
