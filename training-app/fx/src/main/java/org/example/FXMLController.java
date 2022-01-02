@@ -13,6 +13,8 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.BlurType;
+import javafx.scene.effect.InnerShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.CornerRadii;
@@ -26,17 +28,20 @@ import javafx.util.Duration;
 public class FXMLController implements Initializable {
     UserDao userDao = new UserDaoImpl();
     @FXML
-    private MediaView mv;
+    private MediaView mv, mv1;
     @FXML
-    private Label label1, label2, label1A, label2A, labelNo, labelYes, labelOk, labelOk2;
+    private Label label1, label2, label1A, label2A, labelNo, labelYes, labelOk, labelOk2, labelWorkout, labelExercises, labelStatistics, labelSettings,
+            labelCreateExercises;
     @FXML
     private TextField textFieldLogin1, textFieldLogin2, textFieldEmail;
     @FXML
     private PasswordField textFieldPassword1, textFieldPassword2;
     @FXML
-    private ImageView imageUser1, imageKey1, imageClose1, imageUser2, imageEmail, imageKey2, imageClose2;
+    private ImageView imageUser1, imageKey1, imageClose1, imageUser2, imageEmail, imageKey2, imageClose2, imageClose3;
     @FXML
-    private Pane pane, pane1, pane2, pane1A, pane2A, paneSecond, paneLogIn, paneRegister, paneNo, paneYes, paneOk, paneLogInFailed, paneOk2;
+    private Pane pane, pane1, pane2, pane1A, pane2A, paneSecond, paneLogIn, paneRegister, paneNo, paneYes, paneOk, paneLogInFailed, paneOk2,
+            paneWorkout, paneExercises, paneStatistics, paneSettings, paneW, paneE, paneSt, paneSet, paneCreateExercises, paneCreateE, paneExercisesUp,
+            paneExercisesDown;
 
     @FXML
     private void entered(MouseEvent event) {
@@ -68,6 +73,10 @@ public class FXMLController implements Initializable {
             imageClose2.setScaleX(1.3);
             imageClose2.setScaleY(1.3);
         }
+        if (event.getTarget() == imageClose3) {
+            imageClose3.setScaleX(1.3);
+            imageClose3.setScaleY(1.3);
+        }
         if (event.getTarget() == paneNo) {
             labelNo.setTextFill(Color.rgb(248, 248, 248));
             labelNo.setScaleX(1.5);
@@ -87,6 +96,36 @@ public class FXMLController implements Initializable {
             labelOk2.setTextFill(Color.rgb(248, 248, 248));
             labelOk2.setScaleX(1.5);
             labelOk2.setScaleY(1.4);
+        }
+        if (event.getTarget() == paneW) {
+            paneWorkout.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(255,255,255),14.5,0.15,0,0));
+            labelWorkout.setTextFill(Color.rgb(243, 157, 0));
+            labelWorkout.setScaleX(1.25);
+            labelWorkout.setScaleY(1.2);
+        }
+        if (event.getTarget() == paneE) {
+            paneExercises.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(255,255,255),14.5,0.15,0,0));
+            labelExercises.setTextFill(Color.rgb(243, 157, 0));
+            labelExercises.setScaleX(1.25);
+            labelExercises.setScaleY(1.2);
+        }
+        if (event.getTarget() == paneSt) {
+            paneStatistics.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(255,255,255),14.5,0.15,0,0));
+            labelStatistics.setTextFill(Color.rgb(243, 157, 0));
+            labelStatistics.setScaleX(1.25);
+            labelStatistics.setScaleY(1.2);
+        }
+        if (event.getTarget() == paneSet) {
+            paneSettings.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(255,255,255),14.5,0.15,0,0));
+            labelSettings.setTextFill(Color.rgb(243, 157, 0));
+            labelSettings.setScaleX(1.25);
+            labelSettings.setScaleY(1.2);
+        }
+        if (event.getTarget() == paneCreateE) {
+            paneCreateExercises.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(255,255,255),14.5,0.15,0,0));
+            labelCreateExercises.setTextFill(Color.rgb(243, 157, 0));
+            labelCreateExercises.setScaleX(1.1);
+            labelCreateExercises.setScaleY(1.2);
         }
     }
 
@@ -139,6 +178,40 @@ public class FXMLController implements Initializable {
         if (event.getTarget() == imageClose2) {
             imageClose2.setScaleX(1);
             imageClose2.setScaleY(1);
+        }
+        if (event.getTarget() == imageClose3) {
+            imageClose3.setScaleX(1);
+            imageClose3.setScaleY(1);
+        }
+        if (event.getTarget() == paneW) {
+            paneWorkout.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(0,0,0),14.5,0.15,0,0));
+            labelWorkout.setTextFill(Color.rgb(248, 248, 248));
+            labelWorkout.setScaleX(1);
+            labelWorkout.setScaleY(1);
+        }
+        if (event.getTarget() == paneE) {
+            paneExercises.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(0,0,0),14.5,0.15,0,0));
+            labelExercises.setTextFill(Color.rgb(248, 248, 248));
+            labelExercises.setScaleX(1);
+            labelExercises.setScaleY(1);
+        }
+        if (event.getTarget() == paneSt) {
+            paneStatistics.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(0,0,0),14.5,0.15,0,0));
+            labelStatistics.setTextFill(Color.rgb(248, 248, 248));
+            labelStatistics.setScaleX(1);
+            labelStatistics.setScaleY(1);
+        }
+        if (event.getTarget() == paneSet) {
+            paneSettings.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(0,0,0),14.5,0.15,0,0));
+            labelSettings.setTextFill(Color.rgb(248, 248, 248));
+            labelSettings.setScaleX(1);
+            labelSettings.setScaleY(1);
+        }
+        if (event.getTarget() == paneCreateE) {
+            paneCreateExercises.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(0,0,0),14.5,0.15,0,0));
+            labelCreateExercises.setTextFill(Color.rgb(248, 248, 248));
+            labelCreateExercises.setScaleX(1);
+            labelCreateExercises.setScaleY(1);
         }
     }
 
@@ -206,6 +279,9 @@ public class FXMLController implements Initializable {
         if (event.getTarget() == imageClose2) {
             javafx.application.Platform.exit();
         }
+        if (event.getTarget() == imageClose3) {
+            javafx.application.Platform.exit();
+        }
         if (event.getTarget() == pane2A) {
 
             try {
@@ -270,6 +346,10 @@ public class FXMLController implements Initializable {
         if (event.getTarget() == paneOk2) {
             paneLogInFailed.setVisible(false);
         }
+        if (event.getTarget() == paneE) {
+            paneExercisesUp.setVisible(true);
+            paneExercisesDown.setVisible(true);
+        }
     }
 
     @Override
@@ -280,5 +360,12 @@ public class FXMLController implements Initializable {
         mv.setMediaPlayer(mediaPlayer);
         mediaPlayer.play();
         mediaPlayer.setMute(true);
+
+        String Url1 = "file:/D:/javaFX/Resurs/video/sport.mp4";
+        Media media1 = new Media(Url1);
+        MediaPlayer mediaPlayer1 = new MediaPlayer(media1);
+        mv1.setMediaPlayer(mediaPlayer1);
+        mediaPlayer1.play();
+        mediaPlayer1.setMute(true);
     }
 }
