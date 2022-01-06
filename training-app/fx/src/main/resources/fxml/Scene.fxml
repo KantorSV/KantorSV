@@ -272,11 +272,14 @@
                   <InnerShadow choke="0.15" color="WHITE" height="30.0" radius="14.5" width="30.0" />
                </effect>
                <children>
-                  <TableView layoutX="18.0" layoutY="55.0" prefHeight="177.0" prefWidth="458.0">
+                  <TableView layoutX="18.0" layoutY="55.0" prefHeight="177.0" prefWidth="458.0" style="-fx-background-color: #313131;" styleClass="background" stylesheets="@../styles/Styles.css">
                     <columns>
                       <TableColumn prefWidth="75.0" text="C1" />
                       <TableColumn prefWidth="75.0" text="C2" />
                     </columns>
+                     <effect>
+                        <InnerShadow choke="0.15" color="WHITE" height="30.0" radius="14.5" width="30.0" />
+                     </effect>
                   </TableView>
                   <Label layoutX="18.0" layoutY="14.0" onMouseEntered="#entered" onMouseExited="#exited" text="Exercises" textFill="#f8f8f8">
                      <font>
