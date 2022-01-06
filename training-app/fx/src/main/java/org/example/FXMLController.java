@@ -1,18 +1,20 @@
 package org.example;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import com.training.dao.UserDao;
 import com.training.dao.UserDaoImpl;
+import com.training.exercises.dao.ExercisesDao;
+import com.training.exercises.dao.ExercisesDaoImpl;
+import com.training.model.Exercises;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.InnerShadow;
 import javafx.scene.image.ImageView;
@@ -26,6 +28,7 @@ import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
 public class FXMLController implements Initializable {
+    private String userLogin;
     UserDao userDao = new UserDaoImpl();
     @FXML
     private MediaView mv, mv1;
@@ -33,7 +36,7 @@ public class FXMLController implements Initializable {
     private Label label1, label2, label1A, label2A, labelNo, labelYes, labelOk, labelOk2, labelWorkout, labelExercises, labelStatistics, labelSettings,
             labelCreateExercises;
     @FXML
-    private TextField textFieldLogin1, textFieldLogin2, textFieldEmail;
+    private TextField textFieldLogin1, textFieldLogin2, textFieldEmail, textFieldExercises;
     @FXML
     private PasswordField textFieldPassword1, textFieldPassword2;
     @FXML
@@ -42,6 +45,8 @@ public class FXMLController implements Initializable {
     private Pane pane, pane1, pane2, pane1A, pane2A, paneSecond, paneLogIn, paneRegister, paneNo, paneYes, paneOk, paneLogInFailed, paneOk2,
             paneWorkout, paneExercises, paneStatistics, paneSettings, paneW, paneE, paneSt, paneSet, paneCreateExercises, paneCreateE, paneExercisesUp,
             paneExercisesDown;
+    @FXML
+    private TableView<Exercises> tableView;
 
     @FXML
     private void entered(MouseEvent event) {
@@ -301,6 +306,7 @@ public class FXMLController implements Initializable {
             String password = textFieldPassword1.getText();
             boolean isLoggedIn = userDao.isLoggedIn(login, password);
             if (isLoggedIn) {
+                userLogin = login;
                 System.out.println("Login - Success");
                 paneSecond.setVisible(true);
                 paneLogIn.setVisible(true);
@@ -350,22 +356,56 @@ public class FXMLController implements Initializable {
             paneExercisesUp.setVisible(true);
             paneExercisesDown.setVisible(true);
         }
+        if (event.getTarget() == paneCreateE) {
+            ExercisesDaoImpl exercisesDao = new ExercisesDaoImpl();
+            String exercisesTitle = textFieldExercises.getText();
+            exercisesDao.create(exercisesTitle, userLogin);
+            textFieldExercises.setText("");
+            List<Exercises> exercisesList = exercisesDao.readAllExercisesByUser(userLogin);
+
+            TableColumn<String, Exercises> exerciseTitleColumn = new TableColumn<>("Exercise Title");
+            /*exerciseTitleColumn.setCellValueFactory(cellData -> {
+                //Integer rowIndex = cellData.getValue();
+                return cellData.;
+            });*/
+
+            tableView.getColumns().clear();
+            //tableView.getColumns().add(exerciseTitleColumn);
+
+            for(int i=0;i<exercisesList.size();i++){
+                 Exercises exercisesItem = exercisesList.get(i);
+                 String title = exercisesItem.getTitle();
+                 tableView.getItems().add(exercisesItem);
+            }
+
+
+        }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        String Url = "file:/C:/Users/HP/Desktop/СЕРГІЙ/KantorFX/girl.mp4";
-        Media media = new Media(Url);
+        String sportUrl = getRelativePath("/video/sport.mp4");
+        Media media = new Media(sportUrl);
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mv.setMediaPlayer(mediaPlayer);
         mediaPlayer.play();
         mediaPlayer.setMute(true);
 
-        String Url1 = "file:/C:/Users/HP/Desktop/СЕРГІЙ/KantorFX/girl.mp4";
-        Media media1 = new Media(Url1);
+        //String sportUrl1 = getRelativePath("/video/sport.mp4");
+        Media media1 = new Media(sportUrl);
         MediaPlayer mediaPlayer1 = new MediaPlayer(media1);
         mv1.setMediaPlayer(mediaPlayer1);
         mediaPlayer1.play();
         mediaPlayer1.setMute(true);
+    }
+
+    private String getRelativePath(String path){
+        String sportUrl = null;
+        try{
+            sportUrl = getClass().getResource("/video/sport.mp4").toURI().toString();
+            return sportUrl;
+        }catch(Exception ex){
+            throw new RuntimeException(ex);
+        }
     }
 }

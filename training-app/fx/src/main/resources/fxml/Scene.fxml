@@ -251,7 +251,7 @@
             </Pane>
             <Pane fx:id="paneExercisesDown" layoutX="270.0" layoutY="352.0" onMouseClicked="#click" prefHeight="70.0" prefWidth="494.0" style="-fx-background-color: #F39D00;" visible="false">
                <children>
-                  <TextField layoutX="14.0" layoutY="16.0" prefHeight="38.0" prefWidth="325.0" />
+                  <TextField fx:id="textFieldExercises" layoutX="14.0" layoutY="16.0" prefHeight="38.0" prefWidth="325.0" />
                   <Pane fx:id="paneCreateExercises" layoutX="350.0" layoutY="16.0" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="132.0" style="-fx-background-color: black;">
                      <children>
                         <Label fx:id="labelCreateExercises" layoutX="10.0" layoutY="9.0" onMouseEntered="#entered" onMouseExited="#exited" text="Create Exercises" textFill="#f8f8f8">
@@ -272,7 +272,7 @@
                   <InnerShadow choke="0.15" color="WHITE" height="30.0" radius="14.5" width="30.0" />
                </effect>
                <children>
-                  <TableView layoutX="18.0" layoutY="55.0" prefHeight="177.0" prefWidth="458.0" style="-fx-background-color: #313131;" styleClass="background" stylesheets="@../styles/Styles.css">
+                  <TableView fx:id="tableView" layoutX="18.0" layoutY="55.0" prefHeight="177.0" prefWidth="458.0" style="-fx-background-color: #313131;" styleClass="background" stylesheets="@../styles/Styles.css">
                     <columns>
                       <TableColumn prefWidth="75.0" text="C1" />
                       <TableColumn prefWidth="75.0" text="C2" />
