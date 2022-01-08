@@ -24,10 +24,10 @@ public class WorkDaoImpl implements WorkOutDao {
     }
 
     @Override
-    public List<Workout> readAllExercisesByUser(String login) {
+    public List<Workout> readAllWorkoutByUser(String login) {
         try (Connection c = Helper.getConnection()){
             List<Workout> list = new ArrayList<>();
-            PreparedStatement ps = c.prepareStatement("select from workout where user_id = (select id from users where login = ?)");
+            PreparedStatement ps = c.prepareStatement("select * from workout where user_id = (select id from users where login = ?)");
             ps.setString(1, login);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -44,8 +44,11 @@ public class WorkDaoImpl implements WorkOutDao {
 
     @Override
     public void update(String currentTitle, String login, String newTitle) {
+        System.out.println("currentTitle="+currentTitle);
+        System.out.println("login="+login);
+        System.out.println("newTitle="+newTitle);
         try (Connection c = Helper.getConnection()){
-            PreparedStatement ps = c.prepareStatement("update workout set treining = ? where treining = ? and user_id = " +
+            PreparedStatement ps = c.prepareStatement("update workout set training = ? where training = ? and user_id = " +
                     "(select id from users where login = ?) ");
             ps.setString(1, newTitle);
             ps.setString(2, currentTitle);
@@ -59,7 +62,7 @@ public class WorkDaoImpl implements WorkOutDao {
     @Override
     public void delete(String title, String login) {
         try (Connection c = Helper.getConnection()){
-            PreparedStatement ps = c.prepareStatement("delete from workout where treining = ? and user_id = (select id from users where login = ? )");
+            PreparedStatement ps = c.prepareStatement("delete from workout where training = ? and user_id = (select id from users where login = ? )");
             ps.setString(1, title);
             ps.setString(2, login);
             ps.execute();

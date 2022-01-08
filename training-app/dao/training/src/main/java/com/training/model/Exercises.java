@@ -2,6 +2,8 @@ package com.training.model;
 
 public class Exercises {
 
+
+
     private String title;
 
     public String getTitle() {

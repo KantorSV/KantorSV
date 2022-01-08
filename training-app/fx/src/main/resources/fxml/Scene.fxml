@@ -249,17 +249,37 @@
                   </Pane>
                </children>
             </Pane>
-            <Pane fx:id="paneExercisesDown" layoutX="270.0" layoutY="352.0" onMouseClicked="#click" prefHeight="70.0" prefWidth="494.0" style="-fx-background-color: #F39D00;" visible="false">
+            <Pane fx:id="paneExercisesDown" layoutX="233.0" layoutY="352.0" onMouseClicked="#click" prefHeight="70.0" prefWidth="569.0" style="-fx-background-color: #F39D00;" visible="false">
                <children>
-                  <TextField fx:id="textFieldExercises" layoutX="14.0" layoutY="16.0" prefHeight="38.0" prefWidth="325.0" />
-                  <Pane fx:id="paneCreateExercises" layoutX="350.0" layoutY="16.0" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="132.0" style="-fx-background-color: black;">
+                  <TextField fx:id="textFieldExercises" layoutX="14.0" layoutY="16.0" onMouseClicked="#click" prefHeight="38.0" prefWidth="325.0" />
+                  <Pane fx:id="paneCreateExercises" layoutX="350.0" layoutY="16.0" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="69.0" style="-fx-background-color: black;">
                      <children>
-                        <Label fx:id="labelCreateExercises" layoutX="10.0" layoutY="9.0" onMouseEntered="#entered" onMouseExited="#exited" text="Create Exercises" textFill="#f8f8f8">
+                        <Label fx:id="labelCreateExercises" layoutX="10.0" layoutY="9.0" onMouseEntered="#entered" onMouseExited="#exited" text="Create" textFill="#f8f8f8">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <Pane fx:id="paneCreateE" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="132.0" />
+                        <Pane fx:id="paneCreateE" onMouseClicked="#exerciseCreateClick" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="69.0" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="paneRemoveExercises" layoutX="419.0" layoutY="16.0" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="69.0" style="-fx-background-color: black;">
+                     <children>
+                        <Label fx:id="labelRemoveExercises" layoutX="6.0" layoutY="9.0" onMouseEntered="#entered" onMouseExited="#exited" text="Remove" textFill="#f8f8f8">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Pane fx:id="paneRemoveE" onMouseClicked="#remove" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="69.0" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="paneUpdateExercises" layoutX="488.0" layoutY="16.0" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="69.0" style="-fx-background-color: black;">
+                     <children>
+                        <Label fx:id="labelUpdateExercises" layoutX="8.0" layoutY="9.0" onMouseEntered="#entered" onMouseExited="#exited" text="Update" textFill="#f8f8f8">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Pane fx:id="paneUpdateE" onMouseClicked="#updateExercises" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="69.0" />
                      </children>
                   </Pane>
                </children>
@@ -267,21 +287,78 @@
                   <InnerShadow choke="0.15" color="WHITE" height="30.0" radius="14.5" width="30.0" />
                </effect>
             </Pane>
-            <Pane fx:id="paneExercisesUp" layoutX="270.0" layoutY="35.0" onMouseClicked="#click" prefHeight="246.0" prefWidth="494.0" style="-fx-background-color: #F39D00;" visible="false">
+            <Pane fx:id="paneExercisesUp" layoutX="233.0" layoutY="72.0" onMouseClicked="#click" prefHeight="246.0" prefWidth="569.0" style="-fx-background-color: #F39D00;" visible="false">
                <effect>
                   <InnerShadow choke="0.15" color="WHITE" height="30.0" radius="14.5" width="30.0" />
                </effect>
                <children>
-                  <TableView fx:id="tableView" layoutX="18.0" layoutY="55.0" prefHeight="177.0" prefWidth="458.0" style="-fx-background-color: #313131;" styleClass="background" stylesheets="@../styles/Styles.css">
+                  <TableView fx:id="tableViewExercises" layoutX="18.0" layoutY="55.0" onMouseClicked="#click" prefHeight="177.0" prefWidth="458.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="C1" />
-                      <TableColumn prefWidth="75.0" text="C2" />
+                      <TableColumn fx:id="columnExercises" prefWidth="225.0" text="title" />
                     </columns>
                      <effect>
                         <InnerShadow choke="0.15" color="WHITE" height="30.0" radius="14.5" width="30.0" />
                      </effect>
                   </TableView>
                   <Label layoutX="18.0" layoutY="14.0" onMouseEntered="#entered" onMouseExited="#exited" text="Exercises" textFill="#f8f8f8">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="paneWorkoutDown" layoutX="233.0" layoutY="352.0" onMouseClicked="#click" prefHeight="70.0" prefWidth="569.0" style="-fx-background-color: #F39D00;" visible="false">
+               <children>
+                  <TextField fx:id="textFieldWorkout" layoutX="14.0" layoutY="16.0" onMouseClicked="#click" prefHeight="38.0" prefWidth="325.0" />
+                  <Pane fx:id="paneCreateWorkout" layoutX="350.0" layoutY="16.0" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="69.0" style="-fx-background-color: black;">
+                     <children>
+                        <Label fx:id="labelCreateWorkout" layoutX="10.0" layoutY="9.0" onMouseEntered="#entered" onMouseExited="#exited" text="Create" textFill="#f8f8f8">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Pane fx:id="paneCreateW" onMouseClicked="#workOutCreateClick" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="69.0" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="paneRemoveWorkout" layoutX="419.0" layoutY="16.0" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="69.0" style="-fx-background-color: black;">
+                     <children>
+                        <Label fx:id="labelRemoveWorkout" layoutX="6.0" layoutY="9.0" onMouseEntered="#entered" onMouseExited="#exited" text="Remove" textFill="#f8f8f8">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Pane fx:id="paneRemoveW" onMouseClicked="#remove" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="69.0" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="paneUpdateWorkout" layoutX="488.0" layoutY="16.0" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="69.0" style="-fx-background-color: black;">
+                     <children>
+                        <Label fx:id="labelUpdateWorkout" layoutX="8.0" layoutY="9.0" onMouseEntered="#entered" onMouseExited="#exited" text="Update" textFill="#f8f8f8">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Pane fx:id="paneUpdateW" onMouseClicked="#updateWorkout" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="69.0" />
+                     </children>
+                  </Pane>
+               </children>
+               <effect>
+                  <InnerShadow choke="0.15" color="WHITE" height="30.0" radius="14.5" width="30.0" />
+               </effect>
+            </Pane>
+            <Pane fx:id="paneWorkoutUp" layoutX="233.0" layoutY="72.0" onMouseClicked="#click" prefHeight="246.0" prefWidth="569.0" style="-fx-background-color: #F39D00;" visible="false">
+               <effect>
+                  <InnerShadow choke="0.15" color="WHITE" height="30.0" radius="14.5" width="30.0" />
+               </effect>
+               <children>
+                  <TableView fx:id="tableViewWorkout" layoutX="18.0" layoutY="55.0" onMouseClicked="#click" prefHeight="177.0" prefWidth="458.0">
+                     <columns>
+                        <TableColumn fx:id="columnWorkout" prefWidth="225.0" text="training" />
+                     </columns>
+                     <effect>
+                        <InnerShadow choke="0.15" color="WHITE" height="30.0" radius="14.5" width="30.0" />
+                     </effect>
+                  </TableView>
+                  <Label layoutX="18.0" layoutY="14.0" onMouseEntered="#entered" onMouseExited="#exited" text="Workout" textFill="#f8f8f8">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>

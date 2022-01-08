@@ -9,12 +9,17 @@ import com.training.dao.UserDaoImpl;
 import com.training.exercises.dao.ExercisesDao;
 import com.training.exercises.dao.ExercisesDaoImpl;
 import com.training.model.Exercises;
+import com.training.model.Workout;
+import com.training.workout.dao.WorkDaoImpl;
 import javafx.animation.TranslateTransition;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.InnerShadow;
 import javafx.scene.image.ImageView;
@@ -28,15 +33,26 @@ import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
 public class FXMLController implements Initializable {
+
+
     private String userLogin;
     UserDao userDao = new UserDaoImpl();
+
+    @FXML
+    private TableView<Exercises> tableViewExercises;
+    @FXML
+    private TableView<Workout> tableViewWorkout;
+    @FXML
+    private TableColumn<Exercises, String> columnExercises;
+    @FXML
+    private TableColumn<Workout, String> columnWorkout;
     @FXML
     private MediaView mv, mv1;
     @FXML
     private Label label1, label2, label1A, label2A, labelNo, labelYes, labelOk, labelOk2, labelWorkout, labelExercises, labelStatistics, labelSettings,
-            labelCreateExercises;
+            labelCreateExercises, labelCreateWorkout, labelRemoveWorkout, labelRemoveExercises, labelUpdateExercises, labelUpdateWorkout;
     @FXML
-    private TextField textFieldLogin1, textFieldLogin2, textFieldEmail, textFieldExercises;
+    private TextField textFieldLogin1, textFieldLogin2, textFieldEmail, textFieldExercises, textFieldWorkout;
     @FXML
     private PasswordField textFieldPassword1, textFieldPassword2;
     @FXML
@@ -44,9 +60,14 @@ public class FXMLController implements Initializable {
     @FXML
     private Pane pane, pane1, pane2, pane1A, pane2A, paneSecond, paneLogIn, paneRegister, paneNo, paneYes, paneOk, paneLogInFailed, paneOk2,
             paneWorkout, paneExercises, paneStatistics, paneSettings, paneW, paneE, paneSt, paneSet, paneCreateExercises, paneCreateE, paneExercisesUp,
-            paneExercisesDown;
-    @FXML
-    private TableView<Exercises> tableView;
+            paneExercisesDown, paneCreateWorkout, paneCreateW, paneWorkoutUp, paneWorkoutDown, paneRemoveExercises, paneRemoveE, paneRemoveWorkout, paneRemoveW,
+            paneUpdateWorkout, paneUpdateExercises, paneUpdateW, paneUpdateE;
+
+    //sec
+    {
+
+    }
+
 
     @FXML
     private void entered(MouseEvent event) {
@@ -103,34 +124,64 @@ public class FXMLController implements Initializable {
             labelOk2.setScaleY(1.4);
         }
         if (event.getTarget() == paneW) {
-            paneWorkout.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(255,255,255),14.5,0.15,0,0));
+            paneWorkout.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(255, 255, 255), 14.5, 0.15, 0, 0));
             labelWorkout.setTextFill(Color.rgb(243, 157, 0));
             labelWorkout.setScaleX(1.25);
             labelWorkout.setScaleY(1.2);
         }
         if (event.getTarget() == paneE) {
-            paneExercises.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(255,255,255),14.5,0.15,0,0));
+            paneExercises.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(255, 255, 255), 14.5, 0.15, 0, 0));
             labelExercises.setTextFill(Color.rgb(243, 157, 0));
             labelExercises.setScaleX(1.25);
             labelExercises.setScaleY(1.2);
         }
         if (event.getTarget() == paneSt) {
-            paneStatistics.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(255,255,255),14.5,0.15,0,0));
+            paneStatistics.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(255, 255, 255), 14.5, 0.15, 0, 0));
             labelStatistics.setTextFill(Color.rgb(243, 157, 0));
             labelStatistics.setScaleX(1.25);
             labelStatistics.setScaleY(1.2);
         }
         if (event.getTarget() == paneSet) {
-            paneSettings.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(255,255,255),14.5,0.15,0,0));
+            paneSettings.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(255, 255, 255), 14.5, 0.15, 0, 0));
             labelSettings.setTextFill(Color.rgb(243, 157, 0));
             labelSettings.setScaleX(1.25);
             labelSettings.setScaleY(1.2);
         }
         if (event.getTarget() == paneCreateE) {
-            paneCreateExercises.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(255,255,255),14.5,0.15,0,0));
+            paneCreateExercises.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(255, 255, 255), 14.5, 0.15, 0, 0));
             labelCreateExercises.setTextFill(Color.rgb(243, 157, 0));
             labelCreateExercises.setScaleX(1.1);
             labelCreateExercises.setScaleY(1.2);
+        }
+        if (event.getTarget() == paneCreateW) {
+            paneCreateWorkout.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(255, 255, 255), 14.5, 0.15, 0, 0));
+            labelCreateWorkout.setTextFill(Color.rgb(243, 157, 0));
+            labelCreateWorkout.setScaleX(1.1);
+            labelCreateWorkout.setScaleY(1.2);
+        }
+        if (event.getTarget() == paneRemoveE) {
+            paneRemoveExercises.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(255, 255, 255), 14.5, 0.15, 0, 0));
+            labelRemoveExercises.setTextFill(Color.rgb(243, 157, 0));
+            labelRemoveExercises.setScaleX(1.1);
+            labelRemoveExercises.setScaleY(1.2);
+        }
+        if (event.getTarget() == paneRemoveW) {
+            paneRemoveWorkout.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(255, 255, 255), 14.5, 0.15, 0, 0));
+            labelRemoveWorkout.setTextFill(Color.rgb(243, 157, 0));
+            labelRemoveWorkout.setScaleX(1.1);
+            labelRemoveWorkout.setScaleY(1.2);
+        }
+        if (event.getTarget() == paneUpdateE) {
+            paneUpdateExercises.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(255, 255, 255), 14.5, 0.15, 0, 0));
+            labelUpdateExercises.setTextFill(Color.rgb(243, 157, 0));
+            labelUpdateExercises.setScaleX(1.1);
+            labelUpdateExercises.setScaleY(1.2);
+        }
+        if (event.getTarget() == paneUpdateW) {
+            paneUpdateWorkout.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(255, 255, 255), 14.5, 0.15, 0, 0));
+            labelUpdateWorkout.setTextFill(Color.rgb(243, 157, 0));
+            labelUpdateWorkout.setScaleX(1.1);
+            labelUpdateWorkout.setScaleY(1.2);
         }
     }
 
@@ -189,34 +240,64 @@ public class FXMLController implements Initializable {
             imageClose3.setScaleY(1);
         }
         if (event.getTarget() == paneW) {
-            paneWorkout.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(0,0,0),14.5,0.15,0,0));
+            paneWorkout.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(0, 0, 0), 14.5, 0.15, 0, 0));
             labelWorkout.setTextFill(Color.rgb(248, 248, 248));
             labelWorkout.setScaleX(1);
             labelWorkout.setScaleY(1);
         }
         if (event.getTarget() == paneE) {
-            paneExercises.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(0,0,0),14.5,0.15,0,0));
+            paneExercises.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(0, 0, 0), 14.5, 0.15, 0, 0));
             labelExercises.setTextFill(Color.rgb(248, 248, 248));
             labelExercises.setScaleX(1);
             labelExercises.setScaleY(1);
         }
         if (event.getTarget() == paneSt) {
-            paneStatistics.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(0,0,0),14.5,0.15,0,0));
+            paneStatistics.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(0, 0, 0), 14.5, 0.15, 0, 0));
             labelStatistics.setTextFill(Color.rgb(248, 248, 248));
             labelStatistics.setScaleX(1);
             labelStatistics.setScaleY(1);
         }
         if (event.getTarget() == paneSet) {
-            paneSettings.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(0,0,0),14.5,0.15,0,0));
+            paneSettings.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(0, 0, 0), 14.5, 0.15, 0, 0));
             labelSettings.setTextFill(Color.rgb(248, 248, 248));
             labelSettings.setScaleX(1);
             labelSettings.setScaleY(1);
         }
         if (event.getTarget() == paneCreateE) {
-            paneCreateExercises.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(0,0,0),14.5,0.15,0,0));
+            paneCreateExercises.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(0, 0, 0), 14.5, 0.15, 0, 0));
             labelCreateExercises.setTextFill(Color.rgb(248, 248, 248));
             labelCreateExercises.setScaleX(1);
             labelCreateExercises.setScaleY(1);
+        }
+        if (event.getTarget() == paneCreateW) {
+            paneCreateWorkout.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(0, 0, 0), 14.5, 0.15, 0, 0));
+            labelCreateWorkout.setTextFill(Color.rgb(248, 248, 248));
+            labelCreateWorkout.setScaleX(1);
+            labelCreateWorkout.setScaleY(1);
+        }
+        if (event.getTarget() == paneRemoveE) {
+            paneRemoveExercises.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(0, 0, 0), 14.5, 0.15, 0, 0));
+            labelRemoveExercises.setTextFill(Color.rgb(248, 248, 248));
+            labelRemoveExercises.setScaleX(1);
+            labelRemoveExercises.setScaleY(1);
+        }
+        if (event.getTarget() == paneRemoveW) {
+            paneRemoveWorkout.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(0, 0, 0), 14.5, 0.15, 0, 0));
+            labelRemoveWorkout.setTextFill(Color.rgb(248, 248, 248));
+            labelRemoveWorkout.setScaleX(1);
+            labelRemoveWorkout.setScaleY(1);
+        }
+        if (event.getTarget() == paneUpdateE) {
+            paneUpdateExercises.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(0, 0, 0), 14.5, 0.15, 0, 0));
+            labelUpdateExercises.setTextFill(Color.rgb(248, 248, 248));
+            labelUpdateExercises.setScaleX(1);
+            labelUpdateExercises.setScaleY(1);
+        }
+        if (event.getTarget() == paneUpdateW) {
+            paneUpdateWorkout.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(0, 0, 0), 14.5, 0.15, 0, 0));
+            labelUpdateWorkout.setTextFill(Color.rgb(248, 248, 248));
+            labelUpdateWorkout.setScaleX(1);
+            labelUpdateWorkout.setScaleY(1);
         }
     }
 
@@ -249,9 +330,7 @@ public class FXMLController implements Initializable {
             label2A.setVisible(true);
             pane2.setVisible(true);
             pane2A.setVisible(true);
-        }
-
-        if (event.getTarget() == pane2) {
+        } else if (event.getTarget() == pane2) {
             TranslateTransition slide = new TranslateTransition();
             slide.setDuration(Duration.seconds(0.3));
             slide.setNode(pane);
@@ -277,17 +356,13 @@ public class FXMLController implements Initializable {
             label2A.setVisible(false);
             pane2.setVisible(false);
             pane2A.setVisible(false);
-        }
-        if (event.getTarget() == imageClose1) {
+        } else if (event.getTarget() == imageClose1) {
             javafx.application.Platform.exit();
-        }
-        if (event.getTarget() == imageClose2) {
+        } else if (event.getTarget() == imageClose2) {
             javafx.application.Platform.exit();
-        }
-        if (event.getTarget() == imageClose3) {
+        } else if (event.getTarget() == imageClose3) {
             javafx.application.Platform.exit();
-        }
-        if (event.getTarget() == pane2A) {
+        } else if (event.getTarget() == pane2A) {
 
             try {
                 paneRegister.setVisible(true);
@@ -300,22 +375,22 @@ public class FXMLController implements Initializable {
                 Helper.showError(ex);
             }
 
-        }
-        if (event.getTarget() == pane1A) {
+        } else if (event.getTarget() == pane1A) {
             String login = textFieldLogin1.getText();
             String password = textFieldPassword1.getText();
             boolean isLoggedIn = userDao.isLoggedIn(login, password);
             if (isLoggedIn) {
                 userLogin = login;
                 System.out.println("Login - Success");
+                initExercisesTable();
+                initWorkOutTable();
                 paneSecond.setVisible(true);
                 paneLogIn.setVisible(true);
             } else {
                 System.out.println("Login - Failed");
                 paneLogInFailed.setVisible(true);
             }
-        }
-        if (event.getTarget() == paneNo) {
+        } else if (event.getTarget() == paneNo) {
             TranslateTransition slide = new TranslateTransition();
             slide.setDuration(Duration.seconds(0.3));
             slide.setNode(pane);
@@ -342,43 +417,22 @@ public class FXMLController implements Initializable {
             pane2.setVisible(false);
             pane2A.setVisible(false);
             paneRegister.setVisible(false);
-        }
-        if (event.getTarget() == paneYes) {
+        } else if (event.getTarget() == paneYes) {
             paneSecond.setVisible(true);
-        }
-        if (event.getTarget() == paneOk) {
+        } else if (event.getTarget() == paneOk) {
             paneLogIn.setVisible(false);
-        }
-        if (event.getTarget() == paneOk2) {
+        } else if (event.getTarget() == paneOk2) {
             paneLogInFailed.setVisible(false);
-        }
-        if (event.getTarget() == paneE) {
+        } else if (event.getTarget() == paneE) {
             paneExercisesUp.setVisible(true);
             paneExercisesDown.setVisible(true);
-        }
-        if (event.getTarget() == paneCreateE) {
-            ExercisesDaoImpl exercisesDao = new ExercisesDaoImpl();
-            String exercisesTitle = textFieldExercises.getText();
-            exercisesDao.create(exercisesTitle, userLogin);
-            textFieldExercises.setText("");
-            List<Exercises> exercisesList = exercisesDao.readAllExercisesByUser(userLogin);
-
-            TableColumn<String, Exercises> exerciseTitleColumn = new TableColumn<>("Exercise Title");
-            /*exerciseTitleColumn.setCellValueFactory(cellData -> {
-                //Integer rowIndex = cellData.getValue();
-                return cellData.;
-            });*/
-
-            tableView.getColumns().clear();
-            //tableView.getColumns().add(exerciseTitleColumn);
-
-            for(int i=0;i<exercisesList.size();i++){
-                 Exercises exercisesItem = exercisesList.get(i);
-                 String title = exercisesItem.getTitle();
-                 tableView.getItems().add(exercisesItem);
-            }
-
-
+            paneWorkoutUp.setVisible(false);
+            paneWorkoutDown.setVisible(false);
+        } else if (event.getTarget() == paneW) {
+            paneExercisesUp.setVisible(false);
+            paneExercisesDown.setVisible(false);
+            paneWorkoutUp.setVisible(true);
+            paneWorkoutDown.setVisible(true);
         }
     }
 
@@ -397,15 +451,140 @@ public class FXMLController implements Initializable {
         mv1.setMediaPlayer(mediaPlayer1);
         mediaPlayer1.play();
         mediaPlayer1.setMute(true);
+
+        columnExercises.setCellValueFactory(new PropertyValueFactory<Exercises, String>("title"));
+        columnWorkout.setCellValueFactory(new PropertyValueFactory<Workout, String>("training"));
     }
 
-    private String getRelativePath(String path){
+    private String getRelativePath(String path) {
         String sportUrl = null;
-        try{
+        try {
             sportUrl = getClass().getResource("/video/sport.mp4").toURI().toString();
             return sportUrl;
-        }catch(Exception ex){
+        } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
     }
+
+
+    @FXML
+    private void exerciseCreateClick(MouseEvent event) {
+        System.out.println("Click!!!");
+        ExercisesDaoImpl exercisesDao = new ExercisesDaoImpl();
+        String exercisesTitle = textFieldExercises.getText();
+        exercisesDao.create(exercisesTitle, userLogin);
+        Exercises exercise = new Exercises();
+        exercise.setTitle(exercisesTitle);
+        tableViewExercises.getItems().add(exercise);
+
+        textFieldExercises.setText("");
+    }
+
+    @FXML
+    private void workOutCreateClick(MouseEvent event) {
+        System.out.println("Click!!!");
+        WorkDaoImpl workDao = new WorkDaoImpl();
+        String exercisesTitle = textFieldWorkout.getText();
+        workDao.create(exercisesTitle, userLogin);
+        Workout workout = new Workout();
+        workout.setTraining(exercisesTitle);
+        tableViewWorkout.getItems().add(workout);
+
+        textFieldWorkout.setText("");
+    }
+
+    private void initExercisesTable() {
+        ExercisesDaoImpl exercisesDao = new ExercisesDaoImpl();
+        List<Exercises> exercisesList = exercisesDao.readAllExercisesByUser(userLogin);
+        for (int i = 0; i < exercisesList.size(); i++) {
+            Exercises exercisesItem = exercisesList.get(i);
+            String title = exercisesItem.getTitle();
+            System.out.println("title=" + title);
+            tableViewExercises.getItems().add(exercisesItem);
+        }
+        initExerciseTableListener();
+    }
+
+    private void initWorkOutTable() {
+        WorkDaoImpl workDao = new WorkDaoImpl();
+        List<Workout> workoutList = workDao.readAllWorkoutByUser(userLogin);
+        for (int i = 0;i < workoutList.size();i++) {
+            Workout workoutItem = workoutList.get(i);
+            String training = workoutItem.getTraining();
+            System.out.println("training = " + training);
+            tableViewWorkout.getItems().add(workoutItem);
+        }
+        initWorkOutTableListener();
+    }
+
+    private void initExerciseTableListener() {
+        tableViewExercises.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                int selectedIndex = tableViewExercises.getSelectionModel().getSelectedIndex();
+                if(selectedIndex!=-1) {
+                    Exercises exercises = tableViewExercises.getItems().get(selectedIndex);
+                    System.out.println("selectedIndex = " + selectedIndex);
+                    textFieldExercises.setText(exercises.getTitle());
+                }
+            }
+        });
+    }
+
+    private void initWorkOutTableListener() {
+        tableViewWorkout.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                int selectedIndex = tableViewWorkout.getSelectionModel().getSelectedIndex();
+                if(selectedIndex!=-1) {
+                    Workout workout = tableViewWorkout.getItems().get(selectedIndex);
+                    System.out.println("selectedIndex = " + selectedIndex);
+                    textFieldWorkout.setText(workout.getTraining());
+                }
+            }
+        });
+    }
+
+    @FXML
+    private void remove(MouseEvent event) {
+
+        if (event.getTarget() == paneRemoveE) {
+            int selectedId = tableViewExercises.getSelectionModel().getSelectedIndex();
+            tableViewExercises.getItems().remove(selectedId);
+        } else if (event.getTarget() == paneRemoveW) {
+            int selectedId = tableViewWorkout.getSelectionModel().getSelectedIndex();
+            tableViewWorkout.getItems().remove(selectedId);
+        }
+    }
+
+    @FXML
+    private void updateExercises(MouseEvent event) {
+
+        String updateTitle = textFieldExercises.getText();
+        Exercises exercises = tableViewExercises.getSelectionModel().getSelectedItem();
+        exercises.setTitle(updateTitle);
+
+    }
+
+    @FXML
+    private void updateWorkout(MouseEvent event) {
+        System.out.println("updateWorkout###############################");
+        String updateTraining = textFieldWorkout.getText();
+
+        int selectedIndex = tableViewWorkout.getSelectionModel().getSelectedIndex();
+        if(selectedIndex!=-1){
+
+            Workout workout = tableViewWorkout.getItems().get(selectedIndex);
+            String currentTraining = workout.getTraining();
+
+            WorkDaoImpl workDao = new WorkDaoImpl();
+            workDao.update(currentTraining, userLogin, updateTraining);
+
+            workout.setTraining(updateTraining);
+            tableViewWorkout.refresh();
+        }
+
+    }
+
+
 }
