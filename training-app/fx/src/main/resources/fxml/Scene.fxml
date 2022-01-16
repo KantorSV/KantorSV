@@ -363,6 +363,16 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
+                  <Pane fx:id="paneDetails" layoutX="486.0" layoutY="194.0" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="69.0" style="-fx-background-color: black;">
+                     <children>
+                        <Label fx:id="labelDetails" layoutX="8.0" layoutY="9.0" onMouseEntered="#entered" onMouseExited="#exited" text="Details" textFill="#f8f8f8">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Pane fx:id="paneD" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="69.0" />
+                     </children>
+                  </Pane>
                </children>
             </Pane>
             <Pane fx:id="paneLogIn" layoutX="243.0" layoutY="155.0" prefHeight="163.0" prefWidth="354.0" style="-fx-background-color: #F39D00;" visible="false">

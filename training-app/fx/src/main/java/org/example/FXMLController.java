@@ -50,7 +50,7 @@ public class FXMLController implements Initializable {
     private MediaView mv, mv1;
     @FXML
     private Label label1, label2, label1A, label2A, labelNo, labelYes, labelOk, labelOk2, labelWorkout, labelExercises, labelStatistics, labelSettings,
-            labelCreateExercises, labelCreateWorkout, labelRemoveWorkout, labelRemoveExercises, labelUpdateExercises, labelUpdateWorkout;
+            labelCreateExercises, labelCreateWorkout, labelRemoveWorkout, labelRemoveExercises, labelUpdateExercises, labelUpdateWorkout, labelDetails;
     @FXML
     private TextField textFieldLogin1, textFieldLogin2, textFieldEmail, textFieldExercises, textFieldWorkout;
     @FXML
@@ -61,13 +61,7 @@ public class FXMLController implements Initializable {
     private Pane pane, pane1, pane2, pane1A, pane2A, paneSecond, paneLogIn, paneRegister, paneNo, paneYes, paneOk, paneLogInFailed, paneOk2,
             paneWorkout, paneExercises, paneStatistics, paneSettings, paneW, paneE, paneSt, paneSet, paneCreateExercises, paneCreateE, paneExercisesUp,
             paneExercisesDown, paneCreateWorkout, paneCreateW, paneWorkoutUp, paneWorkoutDown, paneRemoveExercises, paneRemoveE, paneRemoveWorkout, paneRemoveW,
-            paneUpdateWorkout, paneUpdateExercises, paneUpdateW, paneUpdateE;
-
-    //sec
-    {
-
-    }
-
+            paneUpdateWorkout, paneUpdateExercises, paneUpdateW, paneUpdateE, paneDetails, paneD;
 
     @FXML
     private void entered(MouseEvent event) {
@@ -182,6 +176,12 @@ public class FXMLController implements Initializable {
             labelUpdateWorkout.setTextFill(Color.rgb(243, 157, 0));
             labelUpdateWorkout.setScaleX(1.1);
             labelUpdateWorkout.setScaleY(1.2);
+        }
+        else if (event.getTarget() == paneD) {
+            paneDetails.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(255, 255, 255), 14.5, 0.15, 0, 0));
+            labelDetails.setTextFill(Color.rgb(243, 157, 0));
+            labelDetails.setScaleX(1.2);
+            labelDetails.setScaleY(1.3);
         }
     }
 
@@ -298,6 +298,12 @@ public class FXMLController implements Initializable {
             labelUpdateWorkout.setTextFill(Color.rgb(248, 248, 248));
             labelUpdateWorkout.setScaleX(1);
             labelUpdateWorkout.setScaleY(1);
+        }
+        else if (event.getTarget() == paneD) {
+            paneDetails.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(0, 0, 0), 14.5, 0.15, 0, 0));
+            labelDetails.setTextFill(Color.rgb(248, 248, 248));
+            labelDetails.setScaleX(1);
+            labelDetails.setScaleY(1);
         }
     }
 
