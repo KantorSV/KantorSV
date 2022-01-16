@@ -50,7 +50,8 @@ public class FXMLController implements Initializable {
     private MediaView mv, mv1;
     @FXML
     private Label label1, label2, label1A, label2A, labelNo, labelYes, labelOk, labelOk2, labelWorkout, labelExercises, labelStatistics, labelSettings,
-            labelCreateExercises, labelCreateWorkout, labelRemoveWorkout, labelRemoveExercises, labelUpdateExercises, labelUpdateWorkout, labelDetails;
+            labelCreateExercises, labelCreateWorkout, labelRemoveWorkout, labelRemoveExercises, labelUpdateExercises, labelUpdateWorkout, labelDetails,
+            labelOne, labelTwo, labelThree, labelFour, labelSave;
     @FXML
     private TextField textFieldLogin1, textFieldLogin2, textFieldEmail, textFieldExercises, textFieldWorkout;
     @FXML
@@ -61,7 +62,8 @@ public class FXMLController implements Initializable {
     private Pane pane, pane1, pane2, pane1A, pane2A, paneSecond, paneLogIn, paneRegister, paneNo, paneYes, paneOk, paneLogInFailed, paneOk2,
             paneWorkout, paneExercises, paneStatistics, paneSettings, paneW, paneE, paneSt, paneSet, paneCreateExercises, paneCreateE, paneExercisesUp,
             paneExercisesDown, paneCreateWorkout, paneCreateW, paneWorkoutUp, paneWorkoutDown, paneRemoveExercises, paneRemoveE, paneRemoveWorkout, paneRemoveW,
-            paneUpdateWorkout, paneUpdateExercises, paneUpdateW, paneUpdateE, paneDetails, paneD;
+            paneUpdateWorkout, paneUpdateExercises, paneUpdateW, paneUpdateE, paneDetails, paneD, paneOne, paneO, paneTwo, paneTw, paneThree, paneTh, paneFour,
+            paneF, paneSave, paneS, paneWorkoutDetails;
 
     @FXML
     private void entered(MouseEvent event) {
@@ -182,6 +184,36 @@ public class FXMLController implements Initializable {
             labelDetails.setTextFill(Color.rgb(243, 157, 0));
             labelDetails.setScaleX(1.2);
             labelDetails.setScaleY(1.3);
+        }
+        else if (event.getTarget() == paneO) {
+            paneOne.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(255, 255, 255), 14.5, 0.15, 0, 0));
+            labelOne.setTextFill(Color.rgb(243, 157, 0));
+            labelOne.setScaleX(1.4);
+            labelOne.setScaleY(1.5);
+        }
+        else if (event.getTarget() == paneTw) {
+            paneTwo.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(255, 255, 255), 14.5, 0.15, 0, 0));
+            labelTwo.setTextFill(Color.rgb(243, 157, 0));
+            labelTwo.setScaleX(1.4);
+            labelTwo.setScaleY(1.5);
+        }
+        else if (event.getTarget() == paneTh) {
+            paneThree.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(255, 255, 255), 14.5, 0.15, 0, 0));
+            labelThree.setTextFill(Color.rgb(243, 157, 0));
+            labelThree.setScaleX(1.4);
+            labelThree.setScaleY(1.5);
+        }
+        else if (event.getTarget() == paneF) {
+            paneFour.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(255, 255, 255), 14.5, 0.15, 0, 0));
+            labelFour.setTextFill(Color.rgb(243, 157, 0));
+            labelFour.setScaleX(1.4);
+            labelFour.setScaleY(1.5);
+        }
+        else if (event.getTarget() == paneS) {
+            paneSave.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(255, 255, 255), 14.5, 0.15, 0, 0));
+            labelSave.setTextFill(Color.rgb(243, 157, 0));
+            labelSave.setScaleX(1.4);
+            labelSave.setScaleY(1.5);
         }
     }
 
@@ -304,6 +336,36 @@ public class FXMLController implements Initializable {
             labelDetails.setTextFill(Color.rgb(248, 248, 248));
             labelDetails.setScaleX(1);
             labelDetails.setScaleY(1);
+        }
+        else if (event.getTarget() == paneO) {
+            paneOne.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(0, 0, 0), 14.5, 0.15, 0, 0));
+            labelOne.setTextFill(Color.rgb(248, 248, 248));
+            labelOne.setScaleX(1);
+            labelOne.setScaleY(1);
+        }
+        else if (event.getTarget() == paneTw) {
+            paneTwo.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(0, 0, 0), 14.5, 0.15, 0, 0));
+            labelTwo.setTextFill(Color.rgb(248, 248, 248));
+            labelTwo.setScaleX(1);
+            labelTwo.setScaleY(1);
+        }
+        else if (event.getTarget() == paneTh) {
+            paneThree.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(0, 0, 0), 14.5, 0.15, 0, 0));
+            labelThree.setTextFill(Color.rgb(248, 248, 248));
+            labelThree.setScaleX(1);
+            labelThree.setScaleY(1);
+        }
+        else if (event.getTarget() == paneF) {
+            paneFour.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(0, 0, 0), 14.5, 0.15, 0, 0));
+            labelFour.setTextFill(Color.rgb(248, 248, 248));
+            labelFour.setScaleX(1);
+            labelFour.setScaleY(1);
+        }
+        else if (event.getTarget() == paneS) {
+            paneSave.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(0, 2, 0), 14.5, 0.15, 0, 0));
+            labelSave.setTextFill(Color.rgb(248, 248, 248));
+            labelSave.setScaleX(1);
+            labelSave.setScaleY(1);
         }
     }
 
@@ -434,11 +496,17 @@ public class FXMLController implements Initializable {
             paneExercisesDown.setVisible(true);
             paneWorkoutUp.setVisible(false);
             paneWorkoutDown.setVisible(false);
+            paneWorkoutDetails.setVisible(false);
         } else if (event.getTarget() == paneW) {
             paneExercisesUp.setVisible(false);
             paneExercisesDown.setVisible(false);
+            paneWorkoutDetails.setVisible(false);
             paneWorkoutUp.setVisible(true);
             paneWorkoutDown.setVisible(true);
+        } else if (event.getTarget() == paneD) {
+            paneWorkoutUp.setVisible(false);
+            paneWorkoutDown.setVisible(false);
+            paneWorkoutDetails.setVisible(true);
         }
     }
 
