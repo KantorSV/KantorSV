@@ -549,11 +549,25 @@ public class FXMLController implements Initializable {
     private void remove(MouseEvent event) {
 
         if (event.getTarget() == paneRemoveE) {
+
             int selectedId = tableViewExercises.getSelectionModel().getSelectedIndex();
-            tableViewExercises.getItems().remove(selectedId);
+            List<Exercises> allExercises = tableViewExercises.getItems();
+
+            Exercises selectedExercise = allExercises.get(selectedId);
+            ExercisesDaoImpl exercisesDao = new ExercisesDaoImpl();
+            exercisesDao.delete(selectedExercise.getTitle(), userLogin);
+
+            allExercises.remove(selectedId);
         } else if (event.getTarget() == paneRemoveW) {
+
             int selectedId = tableViewWorkout.getSelectionModel().getSelectedIndex();
-            tableViewWorkout.getItems().remove(selectedId);
+            List<Workout> allWorkouts = tableViewWorkout.getItems();
+
+            Workout selectWorkout = allWorkouts.get(selectedId);
+            WorkDaoImpl workDao = new WorkDaoImpl();
+            workDao.delete(selectWorkout.getTraining(), userLogin);
+
+            allWorkouts.remove(selectedId);
         }
     }
 
@@ -561,9 +575,19 @@ public class FXMLController implements Initializable {
     private void updateExercises(MouseEvent event) {
 
         String updateTitle = textFieldExercises.getText();
-        Exercises exercises = tableViewExercises.getSelectionModel().getSelectedItem();
-        exercises.setTitle(updateTitle);
 
+        int selectedIndex = tableViewExercises.getSelectionModel().getSelectedIndex();
+        if (selectedIndex!=-1) {
+
+            Exercises exercises = tableViewExercises.getSelectionModel().getSelectedItem();
+            String currentTitle =  exercises.getTitle();
+
+            ExercisesDaoImpl exercisesDao = new ExercisesDaoImpl();
+            exercisesDao.update(currentTitle, userLogin, updateTitle);
+
+            exercises.setTitle(updateTitle);
+            tableViewExercises.refresh();
+        }
     }
 
     @FXML
