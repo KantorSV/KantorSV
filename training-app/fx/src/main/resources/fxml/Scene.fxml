@@ -371,7 +371,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <Pane fx:id="paneD" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="69.0" />
+                        <Pane fx:id="paneD" onMouseClicked="#initExercisesList" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="69.0" />
                      </children>
                   </Pane>
                </children>
@@ -395,7 +395,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <Pane fx:id="paneS" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="69.0" />
+                        <Pane fx:id="paneS" onMouseClicked="#saveExercisesForWorkout" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="69.0" />
                      </children>
                   </Pane>
                   <Pane fx:id="paneFour" layoutX="250.0" layoutY="215.0" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="69.0" style="-fx-background-color: black;">
@@ -405,7 +405,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <Pane fx:id="paneF" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="69.0" />
+                        <Pane fx:id="paneF" onMouseClicked="#unChooseAllExercisesForWorkout" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="69.0" />
                      </children>
                   </Pane>
                   <Pane fx:id="paneThree" layoutX="250.0" layoutY="162.0" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="69.0" style="-fx-background-color: black;">
@@ -415,7 +415,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <Pane fx:id="paneTh" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="69.0" />
+                        <Pane fx:id="paneTh" onMouseClicked="#chooseAllExercisesForWorkout" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="69.0" />
                      </children>
                   </Pane>
                   <Pane fx:id="paneTwo" layoutX="250.0" layoutY="109.0" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="69.0" style="-fx-background-color: black;">
@@ -425,7 +425,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <Pane fx:id="paneTw" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="69.0" />
+                        <Pane fx:id="paneTw" onMouseClicked="#unChooseSingleExercisesForWorkout" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="69.0" />
                      </children>
                   </Pane>
                   <Pane fx:id="paneOne" layoutX="250.0" layoutY="56.0" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="69.0" style="-fx-background-color: black;">
@@ -435,7 +435,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <Pane fx:id="paneO" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="69.0" />
+                        <Pane fx:id="paneO" onMouseClicked="#chooseSingleExercisesForWorkout" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="38.0" prefWidth="69.0" />
                      </children>
                   </Pane>
                </children>

@@ -11,6 +11,8 @@ import com.training.exercises.dao.ExercisesDaoImpl;
 import com.training.model.Exercises;
 import com.training.model.Workout;
 import com.training.workout.dao.WorkDaoImpl;
+import com.training.workoutex.dao.WorkoutExDao;
+import com.training.workoutex.dao.WorkoutExtDaoImpl;
 import javafx.animation.TranslateTransition;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -34,10 +36,12 @@ import javafx.util.Duration;
 
 public class FXMLController implements Initializable {
 
-
+    private String currentWorkoutTraining;
     private String userLogin;
     UserDao userDao = new UserDaoImpl();
 
+    @FXML
+    private ListView<String> listViewLeft, listViewRight;
     @FXML
     private TableView<Exercises> tableViewExercises;
     @FXML
@@ -507,6 +511,28 @@ public class FXMLController implements Initializable {
             paneWorkoutUp.setVisible(false);
             paneWorkoutDown.setVisible(false);
             paneWorkoutDetails.setVisible(true);
+            listViewRight.getItems().clear();
+            listViewLeft.getItems().clear();
+            int selectedWorkout = tableViewWorkout.getSelectionModel().getSelectedIndex();
+            if(selectedWorkout!=-1) {
+                Workout workout = tableViewWorkout.getItems().get(selectedWorkout);
+                currentWorkoutTraining = workout.getTraining();
+
+                WorkoutExDao workoutExDao = new WorkoutExtDaoImpl();
+                List<String> selectedExercises = workoutExDao.readWorkoutExercisesMapping(userLogin, currentWorkoutTraining);
+                listViewRight.getItems().addAll(selectedExercises);
+
+
+                ExercisesDao exercisesDao = new ExercisesDaoImpl();
+                List<Exercises> allExercises = exercisesDao.readAllExercisesByUser(userLogin);
+                for (int i = 0; i < allExercises.size(); i++) {
+                    Exercises exercises = allExercises.get(i);
+                    listViewLeft.getItems().add(exercises.getTitle());
+                }
+                listViewLeft.getItems().removeAll(selectedExercises);
+            }
+
+
         }
     }
 
@@ -577,6 +603,18 @@ public class FXMLController implements Initializable {
             tableViewExercises.getItems().add(exercisesItem);
         }
         initExerciseTableListener();
+    }
+
+    @FXML
+    private void initExercisesList() {
+        ExercisesDaoImpl exercisesDao = new ExercisesDaoImpl();
+        List<Exercises> exercisesList = exercisesDao.readAllExercisesByUser(userLogin);
+        for (int i = 0; i < exercisesList.size(); i++) {
+            Exercises exercisesItem = exercisesList.get(i);
+            String title = exercisesItem.getTitle();
+            System.out.println("title=" + title);
+            listViewLeft.getItems().add(title);
+        }
     }
 
     private void initWorkOutTable() {
@@ -681,6 +719,54 @@ public class FXMLController implements Initializable {
             workout.setTraining(updateTraining);
             tableViewWorkout.refresh();
         }
+
+    }
+
+    @FXML
+    private void chooseAllExercisesForWorkout() {
+
+        List allExercises = listViewLeft.getItems();
+        listViewRight.getItems().addAll(allExercises);
+        listViewLeft.getItems().clear();
+    }
+
+    @FXML
+    private void unChooseAllExercisesForWorkout() {
+
+        List allExercises = listViewRight.getItems();
+        listViewLeft.getItems().addAll(allExercises);
+        listViewRight.getItems().clear();
+    }
+
+    @FXML
+    private void chooseSingleExercisesForWorkout() {
+
+        int selectedIndex = listViewLeft.getSelectionModel().getSelectedIndex();
+        if(selectedIndex!=-1) {
+            String selectedExercisesTitle = listViewLeft.getItems().get(selectedIndex);
+            listViewRight.getItems().add(selectedExercisesTitle);
+            listViewLeft.getItems().remove(selectedIndex);
+        }
+
+    }
+
+    @FXML
+    private void unChooseSingleExercisesForWorkout() {
+
+        int selectedIndex = listViewRight.getSelectionModel().getSelectedIndex();
+        if (selectedIndex!=-1) {
+            String selectedExercisesTitle = listViewRight.getItems().get(selectedIndex);
+            listViewLeft.getItems().add(selectedExercisesTitle);
+            listViewRight.getItems().remove(selectedIndex);
+        }
+    }
+
+    @FXML
+    private void saveExercisesForWorkout() {
+
+        List<String> selectedExercises =  listViewRight.getItems();
+        WorkoutExDao workoutExDao = new WorkoutExtDaoImpl();
+        workoutExDao.saveWorkoutExercisesMapping(userLogin, currentWorkoutTraining, selectedExercises);
 
     }
 
