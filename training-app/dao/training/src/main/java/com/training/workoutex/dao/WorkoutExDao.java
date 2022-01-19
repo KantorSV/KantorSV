@@ -8,4 +8,6 @@ public interface WorkoutExDao {
 
     public List<String> readWorkoutExercisesMapping(String userLogin, String training);
 
+    public void deleteWorkoutExercisesMapping(String training, String userLogin);
+
 }

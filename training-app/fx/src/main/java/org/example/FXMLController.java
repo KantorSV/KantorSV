@@ -764,8 +764,12 @@ public class FXMLController implements Initializable {
     @FXML
     private void saveExercisesForWorkout() {
 
-        List<String> selectedExercises =  listViewRight.getItems();
         WorkoutExDao workoutExDao = new WorkoutExtDaoImpl();
+        workoutExDao.deleteWorkoutExercisesMapping(currentWorkoutTraining, userLogin);
+
+
+        List<String> selectedExercises =  listViewRight.getItems();
+
         workoutExDao.saveWorkoutExercisesMapping(userLogin, currentWorkoutTraining, selectedExercises);
 
     }

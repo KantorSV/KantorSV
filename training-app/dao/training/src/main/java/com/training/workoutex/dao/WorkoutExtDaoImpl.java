@@ -60,6 +60,21 @@ public class WorkoutExtDaoImpl implements WorkoutExDao {
         }
     }
 
+    @Override
+    public void deleteWorkoutExercisesMapping(String training, String userLogin) {
+
+        try (Connection c = Helper.getConnection()){
+            String sql = "delete from workout_exercises where workout_id = "+
+                    "(select id from workout where training = ? and user_id = (select id from users where login = ?))";
+            PreparedStatement ps = c.prepareStatement(sql);
+            ps.setString(1, training);
+            ps.setString(2, userLogin);
+            ps.execute();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
         WorkoutExtDaoImpl dao = new WorkoutExtDaoImpl();
         List<String> res = dao.readWorkoutExercisesMapping("denys", "Friday");
