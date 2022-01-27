@@ -1,0 +1,43 @@
+<group name="A" year="2004" count="20">
+    <student>
+        <name>Denis</name>
+        <age>1</age>
+        <iq>1</iq>
+    </student>
+    <student>
+        <name>Piter</name>
+        <age>2</age>
+        <iq>2</iq>
+    </student>
+    <student>
+        <name>Jack</name>
+        <age>3</age>
+        <iq>3</iq>
+    </student>
+    <student>
+        <name>Boris</name>
+        <age>4</age>
+        <iq>4</iq>
+    </student>
+    <student>
+        <name>Serhii</name>
+        <age>5</age>
+        <iq>5</iq>
+    </student>
+
+
+</group>
+
+
+public class MyGroup{
+    String name;
+    int year;
+    int count;
+    List<Student> students
+
+}
+
+public class Student {
+String name;
+int age;
+int iq;

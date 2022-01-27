@@ -1,0 +1,8 @@
+<trainings>
+    <training id="1" type="A">
+        <name>Monday</name>
+    </training>
+    <training id="2" type="B">
+        <name>Friday</name>
+    </training>
+</trainings>
