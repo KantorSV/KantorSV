@@ -55,7 +55,7 @@ public class FXMLController implements Initializable {
     @FXML
     private Label label1, label2, label1A, label2A, labelNo, labelYes, labelOk, labelOk2, labelWorkout, labelExercises, labelStatistics, labelSettings,
             labelCreateExercises, labelCreateWorkout, labelRemoveWorkout, labelRemoveExercises, labelUpdateExercises, labelUpdateWorkout, labelDetails,
-            labelOne, labelTwo, labelThree, labelFour, labelSave;
+            labelOne, labelTwo, labelThree, labelFour, labelSave, labelDetailsEx;
     @FXML
     private TextField textFieldLogin1, textFieldLogin2, textFieldEmail, textFieldExercises, textFieldWorkout;
     @FXML
@@ -67,7 +67,7 @@ public class FXMLController implements Initializable {
             paneWorkout, paneExercises, paneStatistics, paneSettings, paneW, paneE, paneSt, paneSet, paneCreateExercises, paneCreateE, paneExercisesUp,
             paneExercisesDown, paneCreateWorkout, paneCreateW, paneWorkoutUp, paneWorkoutDown, paneRemoveExercises, paneRemoveE, paneRemoveWorkout, paneRemoveW,
             paneUpdateWorkout, paneUpdateExercises, paneUpdateW, paneUpdateE, paneDetails, paneD, paneOne, paneO, paneTwo, paneTw, paneThree, paneTh, paneFour,
-            paneF, paneSave, paneS, paneWorkoutDetails;
+            paneF, paneSave, paneS, paneWorkoutDetails, paneExercisesDetails, paneDEx;
 
     @FXML
     private void entered(MouseEvent event) {
@@ -218,6 +218,12 @@ public class FXMLController implements Initializable {
             labelSave.setTextFill(Color.rgb(243, 157, 0));
             labelSave.setScaleX(1.4);
             labelSave.setScaleY(1.5);
+        }
+        else if (event.getTarget() == paneDEx) {
+            paneExercisesDetails.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(255, 255, 255), 14.5, 0.15, 0, 0));
+            labelDetailsEx.setTextFill(Color.rgb(243, 157, 0));
+            labelDetailsEx.setScaleX(1.2);
+            labelDetails.setScaleY(1.3);
         }
     }
 
@@ -371,6 +377,12 @@ public class FXMLController implements Initializable {
             labelSave.setScaleX(1);
             labelSave.setScaleY(1);
         }
+        else if (event.getTarget() == paneDEx) {
+            paneExercisesDetails.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, Color.rgb(0, 2, 0), 14.5, 0.15, 0, 0));
+            labelDetailsEx.setTextFill(Color.rgb(248, 248, 248));
+            labelDetailsEx.setScaleX(1);
+            labelDetailsEx.setScaleY(1);
+        }
     }
 
     @FXML
@@ -501,15 +513,20 @@ public class FXMLController implements Initializable {
             paneWorkoutUp.setVisible(false);
             paneWorkoutDown.setVisible(false);
             paneWorkoutDetails.setVisible(false);
+            paneExercisesDetails.setVisible(false);
         } else if (event.getTarget() == paneW) {
             paneExercisesUp.setVisible(false);
             paneExercisesDown.setVisible(false);
             paneWorkoutDetails.setVisible(false);
+            paneExercisesDetails.setVisible(false);
             paneWorkoutUp.setVisible(true);
             paneWorkoutDown.setVisible(true);
         } else if (event.getTarget() == paneD) {
+            paneExercisesDetails.setVisible(false);
             paneWorkoutUp.setVisible(false);
             paneWorkoutDown.setVisible(false);
+            paneExercisesUp.setVisible(false);
+            paneExercisesDown.setVisible(false);
             paneWorkoutDetails.setVisible(true);
             listViewRight.getItems().clear();
             listViewLeft.getItems().clear();
@@ -531,8 +548,14 @@ public class FXMLController implements Initializable {
                 }
                 listViewLeft.getItems().removeAll(selectedExercises);
             }
-
-
+        }
+        else if (event.getTarget() == paneDEx) {
+            paneWorkoutUp.setVisible(false);
+            paneWorkoutDown.setVisible(false);
+            paneExercisesUp.setVisible(false);
+            paneExercisesDown.setVisible(false);
+            paneWorkoutDetails.setVisible(false);
+            paneExercisesDetails.setVisible(true);
         }
     }
 
