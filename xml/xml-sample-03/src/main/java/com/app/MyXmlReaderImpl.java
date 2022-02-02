@@ -3,18 +3,19 @@ package com.app;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.File;
-import java.util.List;
 
 public class MyXmlReaderImpl implements MyXmlReader{
 
+
     @Override
-    public MyGroup parseXml(File xmlFile) {
+    public MyClass parseXml(File fileXml) {
+
         SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
         try {
             SAXParser parser = saxParserFactory.newSAXParser();
             MyDefaultHandler myDefaultHandler = new MyDefaultHandler();
-            parser.parse(xmlFile, myDefaultHandler);
-            return  myDefaultHandler.getMyGroup();
+            parser.parse(fileXml, myDefaultHandler);
+            return myDefaultHandler.getMyClass();
         }catch (Exception e) {
             throw new RuntimeException(e);
         }

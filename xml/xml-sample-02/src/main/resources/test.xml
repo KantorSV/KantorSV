@@ -1,0 +1,21 @@
+<Group name="A" year="2004" count "5"><student id="0">
+<name>"name = 0"</name>
+<age>"0"</age>
+<iq>"0"</iq>
+</student><student id="1">
+<name>"name = 1"</name>
+<age>"1"</age>
+<iq>"1"</iq>
+</student><student id="2">
+<name>"name = 2"</name>
+<age>"2"</age>
+<iq>"2"</iq>
+</student><student id="3">
+<name>"name = 3"</name>
+<age>"3"</age>
+<iq>"3"</iq>
+</student><student id="4">
+<name>"name = 4"</name>
+<age>"4"</age>
+<iq>"4"</iq>
+</student></Group>

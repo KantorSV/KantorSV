@@ -1,4 +1,4 @@
-package com.app;
+package com.app01;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +57,7 @@ public class MyGroup {
                 "name='" + name + '\'' +
                 ", year=" + year +
                 ", count=" + count +
-                ", students=" + printStudentsList() +
+                ", students \n" + printStudentsList() +
                 '}';
     }
 
