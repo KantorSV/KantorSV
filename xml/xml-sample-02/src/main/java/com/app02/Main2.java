@@ -19,7 +19,7 @@ public class Main2 {
     private static List<Students> initStudents(int n) {
 
         List<Students> studentsList = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
+       for (int i = 0; i < n; i++) {
             Students students = new Students();
             students.setId(i);
             students.setName("" + i);
@@ -27,6 +27,8 @@ public class Main2 {
             students.setIq(i);
             studentsList.add(students);
         }
+
+
         return studentsList;
     }
 }

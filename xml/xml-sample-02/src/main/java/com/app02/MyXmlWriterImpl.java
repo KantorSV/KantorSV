@@ -21,15 +21,15 @@ public class MyXmlWriterImpl implements MyXmlWriter{
             sb.append(openTag);
 
             String name = students.getName();
-            String Name = String.format("\t\t<name> \"%s\" </name>\n", name);
+            String Name = String.format("\t\t<name>%s</name>\n", name);
             sb.append(Name);
 
             int age = students.getAge();
-            String Age = String.format("\t\t<age> \"%s\" </age>\n", age);
+            String Age = String.format("\t\t<age>%s</age>\n", age);
             sb.append(Age);
 
             int iq = students.getIq();
-            String Iq = String.format("\t\t<iq> \"%s\" </iq>\n", iq);
+            String Iq = String.format("\t\t<iq>%s</iq>\n", iq);
             sb.append(Iq);
 
             sb.append("\t</student>\n");
