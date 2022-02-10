@@ -1,0 +1,17 @@
+<Class name="11-B">
+    <Teacher>
+        <Name>Nazarenko</Name>
+    </Teacher>
+    <Student id="1">
+        <Name>Abramov</Name>
+    </Student>
+    <Student id="2">
+        <Name>Kantor</Name>
+    </Student>
+    <Student id="3">
+        <Name>Prokopuik</Name>
+    </Student>
+    <Student id="4">
+        <Name>Stefanishin</Name>
+    </Student>
+</Class>
