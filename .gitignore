@@ -29,3 +29,9 @@
 /soap/calculator/soap-ws/target
 /soap/calculator/soap-ws-client/.idea
 /soap/calculator/soap-ws-client/target
+/soap/soap-kantor/.idea
+/soap/soap-kantor/target
+/soap/soap-ws-person/.idea
+/soap/soap-ws-person/target
+/soap/soap-ws-person-integration-tests/.idea
+/soap/soap-ws-person-integration-tests/target
