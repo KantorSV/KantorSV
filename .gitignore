@@ -35,3 +35,7 @@
 /soap/soap-ws-person/target
 /soap/soap-ws-person-integration-tests/.idea
 /soap/soap-ws-person-integration-tests/target
+/soap/soap-ws-car/.idea
+/soap/soap-ws-car/target
+/soap/soap-ws-car-integration-tests/.idea
+/soap/soap-ws-car-integration-tests/target
