@@ -39,3 +39,5 @@
 /soap/soap-ws-car/target
 /soap/soap-ws-car-integration-tests/.idea
 /soap/soap-ws-car-integration-tests/target
+/training-app/soap-ws/training-soap-server/.idea
+/training-app/soap-ws/training-soap-server/target
